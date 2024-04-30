@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Categorie";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<!-- phần categories    -->
+<section class="categories" id="categories">
+    <h1 class="heading"> Sản Phẩm <span>giảm giá</span></h1>
+    <div class="box-container">
+
+        <div class="box">
+            <img src="~/img\Categories\hanh_tim.jpg" alt="">
+            <h3>hành tím</h3>
+            <p>Gảm 5% </p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\hanhla.jpg" alt="">
+            <h3>hành lá</h3>
+            <p>Gảm 4% </p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\gung.jpg" alt="">
+            <h3>gừng</h3>
+            <p>Gảm 35%</p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\cu_kieu.jpg" alt="">
+            <h3>cũ kiệu</h3>
+            <p>Gảm 65% </p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\hatmutat.jpg" alt="">
+            <h3>Hạt Mù Tạt</h3>
+            <p>Gảm 25% </p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\hoadoi.jpg" alt="">
+            <h3>Hoa Hồi</h3>
+            <p>Gảm 15% </p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\hoquarung.jpg" alt="">
+            <h3>Khổ Qua</h3>
+            <p>Gảm 15% </p>
+            <a href="#" class="btn">Mua Ngay </a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\lachanhthai.png" alt="">
+            <h3>Lá Chanh</h3>
+            <p>Gảm 15% </p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+        @foreach (var category in Model)
+        {
+            <div class="box">
+                <img src="@Url.Content(category.Picture)" alt="@category.CategoriesName">
+                <h3>@category.CategoriesName</h3>
+                <p>Gảm @category.SellOff% </p>
+                <a href="#" class="btn">Mua Ngay</a>
+            </div>
+        }
+
+
+    </div>
+</section>
+
+
+

@@ -1,0 +1,161 @@
+﻿@model FiveTeam.Models.BlogsFiveTeam
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/AdminHome/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    /* Các thuộc tính chung */
+    .heading {
+        font-weight: bolder;
+        text-align: center;
+        padding: 5rem 0 2rem; /* Kết hợp padding thành một dòng */
+        font-size: 3.5rem;
+        color: var(--black);
+    }
+
+        /* Hiệu ứng cho phần chữ trong thẻ <span> của .heading */
+        .heading span {
+            background: #FF8C00;
+            color: #fff;
+            display: inline-block;
+            padding: .5rem 3rem;
+            clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+        }
+
+    /* Phần form */
+    .form-horizontal, h2, h4 {
+        width: 60%;
+        margin: 0 auto;
+        line-height: 1.5rem;
+        border-radius: .5rem;
+        background: #eee;
+        color: var(--black);
+        font-size: 1.5rem;
+        font-weight: bolder;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .control-label {
+        text-align: right;
+    }
+
+    .col-md-10 {
+        padding: 0;
+        color: #FF8C00;
+    }
+
+    .form-control {
+        background-color: #eee;
+        font-size: 1.5rem;
+        width: 90%;
+    }
+
+        .form-control:hover {
+            color: var(--orange); /* Loại bỏ dòng trùng lặp */
+            cursor: pointer;
+        }
+
+    /* Nút */
+    .btn-default {
+        padding: 0.5rem 1rem;
+        font-size: 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: bolder;
+        color: #FF8C00;
+    }
+
+        /* Hover state cho nút */
+        .btn-default:hover {
+            background-color: var(--orange);
+        }
+
+    h3 {
+        width: 60%;
+        margin: 0 auto;
+        font-size: 3rem;
+        font-weight: bolder;
+        color: #FF8C00;
+    }
+
+    /* Đặt màu chữ cho nút */
+    .btn-default {
+        color: #FF8C00;
+    }
+</style>
+
+<h1 class="heading" style="color: #000080"> Create <span>Blogs</span> </h1>
+<h3>The Six Team</h3>
+
+@using (Html.BeginForm("Create", "Blogs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="color: #000080;">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ByUser, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ByUser, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ByUser, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContentTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContentTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ContentTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="fileAnh" class="form-control" />
+                @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+
+            <div class="col-md-offset-2 ">
+                @Html.ActionLink("Back to List", "ListBlogs", null, new { @class = "btn btn-default" })
+            </div>
+
+        </div>
+    </div>
+}
+

@@ -1,0 +1,160 @@
+﻿@model IEnumerable<FiveTeam.Models.CategoriesFiveTeam>
+
+@{
+    ViewBag.Title = "ListCategories";
+    Layout = "~/Areas/AdminHome/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    /* Định nghĩa các thuộc tính CSS cho class .heading */
+    .heading {
+        font-weight: bolder;
+        text-align: center;
+        padding: 2rem 0;
+        padding-top: 5rem;
+        font-size: 3.5rem;
+        color: var(--black);
+    }
+
+        /* Tạo hiệu ứng nổi bật cho phần chữ trong thẻ <span> của .heading */
+        .heading span {
+            background: #FF8C00;
+            color: #fff;
+            display: inline-block;
+            padding: .5rem 3rem;
+            clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+        }
+
+    /* Định nghĩa các thuộc tính CSS cho class .alert */
+    .alert {
+        /* Thêm class alert-success vào đây */
+        width: 60%;
+        font-weight: bolder;
+        color: #FF8C00;
+    }
+
+    /* Định nghĩa các thuộc tính CSS cho class .table-container và thẻ p */
+    .table-container, p {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    /* Định nghĩa các thuộc tính CSS cho thẻ table */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    /* Định nghĩa các thuộc tính CSS cho thẻ tr */
+    tr {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Định nghĩa các thuộc tính CSS cho thẻ th */
+    th {
+        font-size: 1.5rem;
+        font-weight: bolder;
+        color: var(--black);
+    }
+
+    /* Định nghĩa các thuộc tính CSS cho thẻ td */
+    td {
+        font-size: 1.5rem;
+        color: var(--black);
+    }
+
+    /* Định nghĩa các thuộc tính CSS cho class .bnt */
+    .bnt {
+        margin-top: 1rem;
+        display: inline-block;
+        padding: .8rem 3rem;
+        font-size: 1.7rem;
+        border-radius: .5rem;
+        border: .2rem solid var(--black);
+        cursor: pointer;
+        background:; /* Chưa có giá trị nền */
+        font-weight: bolder;
+    }
+
+    /* Định nghĩa các thuộc tính CSS cho class .btn-default */
+    .btn-default {
+        padding: 0.5rem 1rem;
+        font-size: 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: bolder;
+        color: #FF8C00;
+    }
+
+    /* Định nghĩa các thuộc tính CSS cho class .bnt btn-default khi hover */
+    .bnt btn-default:hover {
+        background-color: var(--orange);
+        color: #FF8C00;
+    }
+
+    /* Định nghĩa các thuộc tính CSS cho thẻ h3 */
+    h3 {
+        width: 60%;
+        margin: 0 auto;
+        font-size: 3rem;
+        font-weight: bolder;
+        color: #FF8C00;
+    }
+</style>
+
+<h1 class="heading" style="color: #000080"> List <span>Categories</span> </h1>
+<h1 class="heading"> @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" }) </h1>
+<h3>The Six Team</h3>
+<div class="table-container" style="color: #000080">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriesCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriesName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SellOff)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Picture)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriesCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriesName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SellOff)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.Picture)"
+                         alt="Image"
+                         width="100"
+                         height="100" />
+                </td>
+                <td class="default" style="text-align: right;">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-default" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

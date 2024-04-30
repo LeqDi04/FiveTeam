@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QuanLySanPhamModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BlogsFiveTeam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ByUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="ContentTitle" Type="nvarchar(max)" />
+          <Property Name="Picture" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CategoriesFiveTeam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CategoriesCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CategoriesName" Type="nvarchar(max)" />
+          <Property Name="SellOff" Type="nvarchar" MaxLength="50" />
+          <Property Name="Picture" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ProductFiveTeam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Productcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductName" Type="nvarchar(max)" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Picture" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ReviewFiveTeam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NameReview" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContentReview" Type="nvarchar(max)" />
+          <Property Name="Picture" Type="nvarchar(max)" />
+          <Property Name="Start" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="QuanLySanPhamModelStoreContainer">
+          <EntitySet Name="BlogsFiveTeam" EntityType="Self.BlogsFiveTeam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoriesFiveTeam" EntityType="Self.CategoriesFiveTeam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductFiveTeam" EntityType="Self.ProductFiveTeam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReviewFiveTeam" EntityType="Self.ReviewFiveTeam" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanLySanPhamModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ProductFiveTeam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Productcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="QuanLySanPhamEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ProductFiveTeams" EntityType="Self.ProductFiveTeam" />
+          <EntitySet Name="BlogsFiveTeams" EntityType="QuanLySanPhamModel.BlogsFiveTeam" />
+          <EntitySet Name="CategoriesFiveTeams" EntityType="QuanLySanPhamModel.CategoriesFiveTeam" />
+          <EntitySet Name="ReviewFiveTeams" EntityType="QuanLySanPhamModel.ReviewFiveTeam" />
+        </EntityContainer>
+        <EntityType Name="BlogsFiveTeam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ByUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContentTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CategoriesFiveTeam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CategoriesCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoriesName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SellOff" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ReviewFiveTeam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NameReview" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContentReview" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Start" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanLySanPhamModelStoreContainer" CdmEntityContainer="QuanLySanPhamEntities2">
+          <EntitySetMapping Name="ProductFiveTeams">
+            <EntityTypeMapping TypeName="QuanLySanPhamModel.ProductFiveTeam">
+              <MappingFragment StoreEntitySet="ProductFiveTeam">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Productcode" ColumnName="Productcode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogsFiveTeams">
+            <EntityTypeMapping TypeName="QuanLySanPhamModel.BlogsFiveTeam">
+              <MappingFragment StoreEntitySet="BlogsFiveTeam">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="ContentTitle" ColumnName="ContentTitle" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ByUser" ColumnName="ByUser" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoriesFiveTeams">
+            <EntityTypeMapping TypeName="QuanLySanPhamModel.CategoriesFiveTeam">
+              <MappingFragment StoreEntitySet="CategoriesFiveTeam">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="SellOff" ColumnName="SellOff" />
+                <ScalarProperty Name="CategoriesName" ColumnName="CategoriesName" />
+                <ScalarProperty Name="CategoriesCode" ColumnName="CategoriesCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReviewFiveTeams">
+            <EntityTypeMapping TypeName="QuanLySanPhamModel.ReviewFiveTeam">
+              <MappingFragment StoreEntitySet="ReviewFiveTeam">
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="ContentReview" ColumnName="ContentReview" />
+                <ScalarProperty Name="NameReview" ColumnName="NameReview" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,1505 @@
+/* Import font chữ Poppins từ Google Fonts */
+/* Import font chữ Poppins từ Google Fonts */
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap);
+
+/* Định nghĩa các biến màu và kiểu dáng để sử dụng lại trong toàn bộ stylesheet */
+:root {
+    --orange: #ff7800; /* Màu cam */
+    --black: #130f40; /* Màu đen */
+    --light-color: #666; /* Màu xám nhạt */
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0.1); /* Hiệu ứng đổ bóng */
+    --boder: 2rem solid rgba(0,0,0.1); /* Viền */
+    --outline: .1rem solid rgba(0,0,0.1); /* Đường viền */
+    --outline-hover: .2rem solid var(--black); /* Đường viền khi hover */
+}
+
+/* Thiết lập các giá trị mặc định cho tất cả các phần tử */
+* {
+    font-family: 'Poppins', sans-serif; /* Sử dụng font chữ Poppins cho tất cả các phần tử */
+    margin: 0;
+    padding: 0; /* Reset margin và padding */
+    box-sizing: border-box; /* Box model: content-box */
+    outline: none;
+    border: none; /* Loại bỏ đường viền và border mặc định */
+    text-decoration: none; /* Loại bỏ gạch chân cho các liên kết */
+    text-transform: capitalize; /* Chuyển đổi chữ hoa thành chữ thường */
+    transition: all .2s linear; /* Hiệu ứng chuyển động mềm mại */
+}
+
+/* Thiết lập kích thước font chữ cho phần tử html */
+html {
+    font-size: 62,5%; /* Thiết lập kích thước font chữ mặc định là 10px */
+    overflow-x: hidden; /* Ẩn thanh trượt ngang */
+    scroll-behavior: smooth; /* Hiệu ứng smooth scroll */
+    scroll-padding-top: 7rem; /* Khoảng cách scroll top */
+}
+
+/* Thiết lập nền cho toàn bộ trang */
+body {
+    background: #eee; /* Màu nền xám nhạt */
+}
+
+/*===== Thiết lập style cho header ======*/
+.header {
+    position: fixed; /* Header cố định ở trên cùng */
+    top: 0;
+    left: 0;
+    right: 0; /* Đặt vị trí header */
+    z-index: 1000; /* Sắp xếp z-index để hiển thị trên các phần tử khác */
+    display: flex; /* Hiển thị header theo kiểu flex */
+    align-items: center; /* Canh giữa theo chiều dọc */
+    justify-content: space-between; /* Canh dọc */
+    padding: 2rem 9%; /* Padding cho header */
+    background: #fff; /* Màu nền trắng */
+    box-shadow: var(--box-shadow); /* Hiệu ứng đổ bóng */
+}
+    /* Định dạng phần logo trong header */
+    .header .logo {
+        font-size: 2.5rem; /* Kích thước font chữ là 2.5rem */
+        font-weight: bolder; /* Độ đậm của font chữ là bolder (đậm hơn font thông thường) */
+        color: var(--black); /* Màu chữ là màu đen */
+    }
+
+        /* Định dạng biểu tượng trong phần logo */
+        .header .logo i {
+            color: var(--orange); /* Màu của biểu tượng là màu cam */
+        }
+
+    /* Định dạng các liên kết trong thanh điều hướng */
+    .header .navbar a {
+        font-size: 1.7rem; /* Kích thước font chữ là 1.7rem */
+        margin: 0 1rem; /* Khoảng cách giữa các liên kết là 0 1rem */
+        color: var(--black); /* Màu chữ là màu đen */
+    }
+
+    .header .navbar.active {
+        right: 2rem;
+        transition: .4s linear;
+    }
+
+    /* Định dạng khi rê chuột qua các liên kết trong thanh điều hướng */
+    .header .navbar a:hover {
+        color: var(--orange); /* Khi rê chuột qua, màu chữ được thay đổi thành màu cam */
+    }
+
+    /* =========Định dạng phần icon của header========= */
+    .header .icon div {
+        height: 4.5rem; /* Chiều cao của phần icon là 4.5rem */
+        width: 4.5rem; /* Chiều rộng của phần icon là 4.5rem */
+        line-height: 4.5rem; /* Dòng chữ được căn giữa theo chiều cao của icon */
+        border-radius: .5rem; /* Bo tròn góc của icon */
+        background: #eee; /* Màu nền của icon là xám nhạt */
+        color: var(--black); /* Màu chữ là màu đen */
+        font-size: 2rem; /* Kích thước font chữ là 2rem */
+        margin-left: .3rem; /* Khoảng cách bên trái của icon là 0.3rem */
+        cursor: pointer; /* Con trỏ chuột sẽ thay đổi thành hình bàn tay khi di chuyển qua icon */
+        text-align: center; /* Chữ được căn giữa theo chiều ngang của icon */
+    }
+
+        /* Định dạng khi rê chuột qua các icon */
+        .header .icon div:hover {
+            background: var(--orange); /* Khi rê chuột qua, màu nền của icon được thay đổi thành màu cam */
+            color: #fff; /* Màu chữ được thay đổi thành màu trắng */
+        }
+
+/* Ẩn nút menu */
+#menu-btn {
+    display: none; /* Thiết lập hiển thị của nút menu là ẩn */
+}
+
+/* =========Định dạng cho ô tìm kiếm trong header============= */
+.header .search-form {
+    position: absolute; /* Vị trí tuyệt đối */
+    top: 110%; /* Độ lệch từ phía trên so với header */
+    right: -110%; /* Khoảng cách từ phía phải của header */
+    width: 50rem; /* Độ rộng của ô tìm kiếm */
+    height: 4.5rem; /* Chiều cao của ô tìm kiếm */
+    background: #fff; /* Màu nền là trắng */
+    border-radius: .5rem; /* Bo tròn các góc của ô tìm kiếm */
+    overflow: hidden; /* Ẩn phần nội dung vượt quá kích thước của ô tìm kiếm */
+    display: flex; /* Hiển thị các phần tử con theo chiều ngang */
+    align-items: center; /* Căn chỉnh các phần tử con theo trục dọc */
+    box-shadow: var(--box-shadow); /* Hiển thị bóng đổ, sử dụng biến CSS --box-shadow */
+}
+
+    .header .search-form.active {
+        right: 2rem; /* Cài đặt khoảng cách từ phần tử .search-form đến bên phải của phần tử cha có class là .header là 2rem */
+        transition: .4s linear; /* Thiết lập hiệu ứng chuyển động khi thuộc tính được thay đổi. Trong trường hợp này, khi class .active được thêm vào phần tử .search-form, hiệu ứng chuyển động sẽ có thời gian là 0.4s và tác động tuyến tính (linear). */
+    }
+
+    /* Định dạng cho input trong ô tìm kiếm */
+    .header .search-form input {
+        height: 100%; /* Chiều cao của input là 100% chiều cao của ô tìm kiếm */
+        width: 100%; /* Độ rộng của input là 100% độ rộng của ô tìm kiếm */
+        background: none; /* Nền là trong suốt */
+        text-transform: none; /* Không biến đổi chữ hoa thành chữ thường */
+        font-size: 1.6rem; /* Kích thước font chữ là 1.6rem */
+        color: var(--black); /* Màu chữ là màu đen */
+        padding: 0 1.5rem; /* Khoảng cách từ lề trái và lề phải của input */
+    }
+
+    /* Định dạng cho nhãn (label) trong ô tìm kiếm */
+    .header .search-form label {
+        font-size: 2.5rem; /* Kích thước font chữ là 2.5rem */
+        padding-right: 1.5rem; /* Khoảng cách từ lề phải của nhãn */
+        color: var(--black); /* Màu chữ là màu đen */
+        cursor: pointer; /* Con trỏ chuột khi rê chuột vào */
+    }
+
+        /* Định dạng cho nhãn (label) trong ô tìm kiếm khi hover */
+        .header .search-form label:hover {
+            color: var(--orange); /* Thay đổi màu chữ thành màu cam khi hover */
+        }
+/* Định dạng cho phần hiển thị giỏ hàng */
+.header .shopping-cart {
+    position: absolute; /* Vị trí tuyệt đối để đặt giỏ hàng */
+    top: 110%; /* Đặt vị trí phía trên của giỏ hàng so với phần header */
+    right: -110%; /* Đặt vị trí từ phía bên phải của header */
+    padding: 1rem; /* Khoảng cách nội bộ trong giỏ hàng */
+    border-radius: .5rem; /* Bo góc của giỏ hàng */
+    box-shadow: var(--box-shadow); /* Hiển thị bóng đổ */
+    width: 30rem; /* Độ rộng của giỏ hàng */
+    background: #fff; /* Màu nền của giỏ hàng */
+}
+    /* Khi class "shopping-cart" có class "active" được thêm vào */
+    .header .shopping-cart.active {
+        /* Di chuyển phần tử sang bên phải cách biên phải 2rem */
+        right: 2rem;
+        /* Áp dụng hiệu ứng chuyển động với thời gian 0.4 giây và kiểu chuyển động tuyến tính */
+        transition: .4s linear;
+    }
+
+    /* Định dạng cho từng hộp trong giỏ hàng */
+    .header .shopping-cart .box {
+        display: flex; /* Hiển thị các hộp theo chiều ngang */
+        align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
+        gap: 1rem; /* Khoảng cách giữa các hộp */
+        position: relative; /* Đặt vị trí tương đối cho hộp */
+        margin: 1rem 0; /* Khoảng cách giữa các hộp */
+    }
+
+        /* Định dạng cho hình ảnh trong hộp của giỏ hàng */
+        .header .shopping-cart .box img {
+            height: 10rem; /* Đặt chiều cao của hình ảnh */
+        }
+
+        /* Định dạng cho biểu tượng xóa trong hộp của giỏ hàng */
+        .header .shopping-cart .box .fa-trash {
+            font-size: 2rem; /* Đặt kích thước của biểu tượng xóa */
+            position: absolute; /* Vị trí tuyệt đối cho biểu tượng xóa */
+            top: 50%; /* Đặt vị trí từ phía trên của biểu tượng xóa */
+            right: 2rem; /* Đặt vị trí từ phía bên phải của hộp */
+            cursor: pointer; /* Biến con trỏ thành dấu nhấp chuột */
+            color: var(--light-color); /* Màu của biểu tượng xóa */
+            transform: translateY(-50%); /* Dịch chuyển biểu tượng xóa để căn chỉnh giữa theo chiều dọc */
+        }
+
+            /* Định dạng cho biểu tượng xóa khi di chuột qua */
+            .header .shopping-cart .box .fa-trash:hover {
+                color: var(--orange); /* Đổi màu của biểu tượng xóa khi di chuột qua */
+            }
+
+
+        /* Định dạng tiêu đề cho giỏ hàng */
+        .header .shopping-cart .box .content h3 {
+            color: var(--black); /* Màu chữ là màu đen */
+            font-size: 1.7rem; /* Kích thước chữ là 1.7rem */
+            padding-bottom: 1rem; /* Khoảng cách dưới của tiêu đề là 1rem */
+        }
+
+        /* Định dạng văn bản thông tin bổ sung trong giỏ hàng */
+        .header .shopping-cart .box .content span {
+            color: var(--light-color); /* Màu chữ là màu sáng */
+            font-size: 1.6rem; /* Kích thước chữ là 1.6rem */
+        }
+
+        /* Định dạng số lượng sản phẩm trong giỏ hàng */
+        .header .shopping-cart .box .content .quantity {
+            padding-left: 1rem; /* Khoảng cách bên trái của số lượng là 1rem */
+        }
+
+    /* Định dạng tổng giá trị của giỏ hàng */
+    .header .shopping-cart .total {
+        font-size: 2rem; /* Kích thước chữ là 2rem */
+        padding: 1rem 0; /* Khoảng cách padding trên và dưới là 1rem, không có padding bên trái và bên phải */
+        text-align: center; /* Canh giữa nội dung */
+        color: var(--black); /* Màu chữ là màu đen */
+    }
+
+/* Định dạng nút */
+.btn {
+    margin-top: 1rem; /* Khoảng cách từ trên xuống của nút là 1rem */
+    display: inline-block; /* Hiển thị là khối inline */
+    padding: .8rem 3rem; /* Khoảng cách padding trên và dưới là .8rem, bên trái và bên phải là 3rem */
+    font-size: 1.7rem; /* Kích thước chữ là 1.7rem */
+    border-radius: .5rem; /* Bo góc của nút là .5rem */
+    border: .2rem solid var(--black); /* Viền của nút là đường viền đen có độ dày .2rem */
+    cursor: pointer; /* Con trỏ là hình bàn tay khi di chuột vào nút */
+    background: none;
+}
+
+    /* Hiệu ứng hover cho nút */
+    .btn:hover {
+        background: var(--orange); /* Màu nền khi hover là màu cam */
+        color: #fff; /* Màu chữ khi hover là màu trắng */
+    }
+/* Thiết lập kiểu hiển thị cho nút trong giỏ hàng */
+.header .shopping-cart .btn {
+    display: block; /* Hiển thị thành khối */
+    text-align: center; /* Căn giữa nội dung */
+    margin: 1rem 0; /* Tạo khoảng cách trên và dưới là 1rem */
+}
+
+/* Thiết lập kiểu hiển thị cho form đăng nhập */
+.header .login-form {
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    top: 110%; /* Cách top 110% so với phần header */
+    right: -110%; /* Dịch sang phải 110% so với phần header */
+    width: 30rem; /* Độ rộng của form là 30rem */
+    box-shadow: var(--box-shadow); /* Đổ bóng sử dụng biến --box-shadow */
+    padding: 2rem; /* Padding bên trong form */
+    border-radius: .5rem; /* Bo tròn viền của form */
+    background: #fff; /* Màu nền là màu trắng */
+    text-align: center; /* Căn giữa nội dung */
+}
+
+    /* Thiết lập kiểu hiển thị cho tiêu đề của form đăng nhập */
+    .header .login-form h3 {
+        font-size: 2rem; /* Cỡ chữ là 2rem */
+        text-transform: uppercase; /* Chuyển đổi thành chữ in hoa */
+        color: var(--black); /* Màu chữ sử dụng biến --black */
+    }
+
+    /* Thiết lập kiểu hiển thị cho các ô input trong form đăng nhập */
+    .header .login-form .box {
+        width: 100%; /* Độ rộng là 100% */
+        margin: .7rem 0; /* Tạo khoảng cách trên và dưới là 0.7rem */
+        background: #eee; /* Màu nền là màu xám nhạt */
+        border-radius: .5rem; /* Bo tròn viền của ô input */
+        padding: 1rem; /* Padding bên trong ô input */
+        font-size: 1.6rem; /* Cỡ chữ là 1.6rem */
+        color: var(--black); /* Màu chữ sử dụng biến --black */
+        text-transform: none; /* Không chuyển đổi chữ thành in hoa */
+    }
+
+    /* Định dạng phần tử <p> trong phần form đăng nhập của header */
+    .header .login-form p {
+        font-size: 1.4rem; /* Thiết lập kích thước font là 1.4rem */
+        padding: .5rem 0; /* Thiết lập padding 0.5rem ở trên và dưới, 0 ở trái và phải */
+        color: var(--light-color); /* Thiết lập màu chữ dựa trên biến --light-color */
+    }
+
+        /* Định dạng phần tử <a> trong phần form đăng nhập của header */
+        .header .login-form p a {
+            color: var(--orange); /* Thiết lập màu chữ dựa trên biến --orange */
+            text-decoration: underline; /* Gạch chân chữ */
+        }
+
+    /* Định dạng khi phần tử có class "active" trong phần form đăng nhập của header */
+    .header .login-form.active {
+        right: 2rem; /* Di chuyển phần tử sang phải 2rem */
+        transition: .4s linear; /* Thiết lập hiệu ứng chuyển động trong 0.4s với kiểu chuyển động tuyến tính */
+    }
+
+/* ========phần section Shopnow ============*/
+section {
+    padding: 2rem 9%;
+}
+/* Định dạng phần tử có lớp "home" */
+.home {
+    /* Thiết lập hiển thị thành flexbox để căn giữa nội dung */
+    display: flex;
+    /* Căn dọc nội dung vào giữa */
+    align-items: center;
+    /* Căn ngang nội dung vào giữa */
+    justify-content: center;
+    /* Thiết lập hình nền là một hình ảnh */
+    background: url(../img/Shopnow/banner1.jpg) no-repeat;
+    /* Căn hình nền theo trung tâm của phần tử */
+    background-position: center;
+    /* Thiết lập kích thước của hình nền sao cho nó bao phủ toàn bộ phần tử */
+    background-size: cover;
+    /* Khoảng cách từ trên xuống cho phần tử */
+    padding-top: 17rem;
+    /* Khoảng cách từ dưới lên cho phần tử */
+    padding-bottom: 10rem;
+}
+    /* Dòng này căn giữa nội dung trong phần .content */
+    .home .content {
+        text-align: center;
+        /* Đặt chiều rộng của phần .content là 60rem */
+        width: 60rem;
+    }
+
+        /* Định dạng cho phần tiêu đề h3 trong phần .content */
+        .home .content h3 {
+            /* Thiết lập màu chữ là màu đen */
+            color: var(--black);
+            /* Đặt kích thước chữ là 3rem */
+            font-size: 3rem;
+        }
+
+            /* Định dạng cho phần span trong phần tiêu đề h3 trong .content */
+            .home .content h3 span {
+                /* Đặt màu chữ của span là màu cam */
+                color: var(--orange);
+            }
+
+        /* Định dạng cho phần đoạn văn bản p trong phần .content */
+        .home .content p {
+            /* Đặt màu chữ của đoạn văn là màu sáng */
+            color: var(--light-color);
+            /* Đặt kích thước chữ là 1.7rem */
+            font-size: 1.7rem;
+            /* Tạo khoảng cách ở trên và dưới của đoạn văn bản */
+            padding: 1rem 0;
+            /* Đặt độ cao dòng là 1.8 */
+            line-height: 1.8;
+        }
+
+/*========= phần section features ===========*/
+
+/* Căn giữa nội dung của .heading */
+.heading {
+    text-align: center;
+    /* Khoảng cách giữa nội dung và viền dưới */
+    padding: 2rem 0;
+    padding-bottom: 3rem;
+    /* Kích thước chữ cho tiêu đề */
+    font-size: 3.5rem;
+    /* Màu chữ */
+    color: var(--black);
+}
+
+    /* Tạo hiệu ứng nổi bật cho phần chữ trong thẻ <span> của .heading */
+    .heading span {
+        /* Màu nền */
+        background: var(--orange);
+        /* Màu chữ */
+        color: #fff;
+        /* Hiển thị phần chữ là một block riêng biệt */
+        display: inline-block;
+        /* Khoảng cách từ chữ đến lề trên và dưới */
+        padding: .5rem 3rem;
+        /* Tạo hiệu ứng cạnh bằng cách cắt lát */
+        clip-path: polygon(100% 0,93% 50%,100% 99%,0% 100%,7% 50%,0% 0%);
+    }
+
+/* Thiết lập hiển thị dạng grid cho phần .box-container */
+.features .box-container {
+    /* Hiển thị các box theo lưới */
+    display: grid;
+    /* Các cột tự động điều chỉnh kích thước tối thiểu và tối đa */
+    grid-template-columns: repeat(auto-fit, minmax(30rem,1fr));
+    /* Khoảng cách giữa các box */
+    gap: 1.5rem;
+}
+
+    /* Thiết lập style cho từng box */
+    .features .box-container .box {
+        /* Khoảng cách từ nội dung đến viền của box */
+        padding: 3rem 2rem;
+        /* Màu nền của box */
+        background: #fff;
+        /* Đường viền */
+        outline: var(--outline);
+        /* Tạo khoảng cách giữa viền và nội dung */
+        outline-offset: -1rem;
+        /* Căn giữa nội dung */
+        text-align: center;
+        /* Đổ bóng cho box */
+        box-shadow: var(--box-shadow);
+    }
+
+        /* Khi hover lên box, hiển thị viền sẽ được mô tả bởi biến CSS var(--outline-hover) */
+        .features .box-container .box:hover {
+            outline: var(--outline-hover);
+            outline-offset: 0rem; /* Khoảng cách từ viền đến phần nội dung bên trong */
+        }
+
+        /* Định dạng ảnh bên trong box */
+        .features .box-container .box img {
+            margin: 1rem 0; /* Khoảng cách giữa ảnh và các phần nội dung xung quanh */
+            height: 15rem; /* Đặt chiều cao của ảnh */
+        }
+
+        /* Định dạng tiêu đề của box */
+        .features .box-container .box h3 {
+            font-size: 2.5rem; /* Kích thước chữ của tiêu đề */
+            line-height: 1.8; /* Độ dài dòng */
+            color: var(--black); /* Màu chữ của tiêu đề */
+        }
+
+        /* Định dạng đoạn văn bản của box */
+        .features .box-container .box p {
+            font-size: 1.5rem; /* Kích thước chữ của đoạn văn bản */
+            line-height: 1.8; /* Độ dài dòng */
+            color: var(--light-color); /* Màu chữ của đoạn văn bản */
+            padding: 1rem 0; /* Khoảng cách giữa đoạn văn bản và các phần xung quanh */
+        }
+
+
+/* =========phần section product =============*/
+
+/* Thiết lập padding cho phần tử .product-slide */
+.products .product-slide {
+    padding: 1rem;
+}
+
+    /* Đối với phần tử đầu tiên trong .product-slide, thêm margin-bottom */
+    .products .product-slide:first-child {
+        margin-bottom: 2rem;
+    }
+
+    /* Thiết lập các thuộc tính cho phần tử .box trong .product-slide */
+    .products .product-slide .box {
+        background: #fff; /* Đặt màu nền cho .box là màu trắng */
+        border-radius: .5rem; /* Bo tròn góc của .box */
+        text-align: center; /* Căn giữa nội dung của .box */
+        padding: 3rem 2rem; /* Thiết lập padding cho .box */
+        outline-offset: -1rem; /* Đặt khoảng cách của viền ngoài là -1rem */
+        outline: var(--outline); /* Đặt viền ngoài cho .box */
+        box-shadow: var(--box-shadow); /* Đổ bóng cho .box */
+        transition: .2s linear; /* Thiết lập hiệu ứng chuyển động khi hover */
+    }
+
+        /* Khi hover vào .box trong .product-slide, thay đổi viền ngoài */
+        .products .product-slide .box:hover {
+            outline-offset: 0rem; /* Đặt khoảng cách của viền ngoài là 0rem khi hover */
+            outline: var(--outline-hover); /* Đặt viền ngoài cho .box khi hover */
+        }
+
+        /* Đặt chiều cao của hình ảnh trong .box */
+        .products .product-slide .box img {
+            height: 20rem; /* Đặt chiều cao của hình ảnh là 20rem */
+        }
+
+        /* Thiết lập kích thước và màu sắc cho tiêu đề của sản phẩm */
+        .products .product-slide .box h3 {
+            font-size: 2.5rem; /* Kích thước chữ */
+            color: var(--black); /* Màu chữ */
+        }
+
+        /* Thiết lập kích thước và màu sắc cho giá của sản phẩm */
+        .products .product-slide .box .prince {
+            font-size: 2rem; /* Kích thước chữ */
+            color: var(--light-color); /* Màu chữ */
+            padding: .5rem 0; /* Khoảng cách giữa các phần tử */
+        }
+
+        /* Thiết lập kích thước và màu sắc cho số lượng sao đánh giá */
+        .products .product-slide .box .start i {
+            font-size: 1.7rem; /* Kích thước biểu tượng */
+            color: var(--orange); /* Màu biểu tượng */
+            padding: .5rem 0; /* Khoảng cách giữa các phần tử */
+        }
+
+
+/* ========phần section categories========== */
+
+/* Thiết lập hiển thị của phần tử container thành grid */
+.categories .box-container {
+    display: grid;
+    /* Thiết lập các cột của grid: các cột sẽ tự động điều chỉnh kích thước để sát vào container, với kích thước tối thiểu là 26rem và tối đa là 1fr (chia đều khoảng trống) */
+    grid-template-columns: repeat(auto-fit, minmax(26rem,1fr));
+    /* Khoảng cách giữa các phần tử con của grid */
+    gap: 1.5rem;
+}
+
+    /* Thiết lập kiểu dáng cho phần tử box */
+    .categories .box-container .box {
+        /* Khoảng cách padding của phần tử */
+        padding: 3rem 2rem;
+        /* Bo góc của phần tử */
+        border-radius: .5rem;
+        /* Màu nền của phần tử */
+        background: #fff;
+        /* Hiển thị bóng đổ */
+        box-shadow: var(--box-shadow);
+        /* Đặt đường viền cho phần tử */
+        outline: var(--outline);
+        /* Đặt độ lệch của đường viền */
+        outline-offset: -1rem;
+        /* Căn giữa nội dung của phần tử */
+        text-align: center;
+    }
+
+        /* Khi rê chuột vào phần tử box */
+        .categories .box-container .box:hover {
+            /* Đặt lại đường viền khi hover */
+            outline: var(--outline-hover);
+            /* Đặt lại độ lệch của đường viền khi hover */
+            outline-offset: 0rem;
+        }
+
+        /* Thiết lập kiểu dáng cho hình ảnh bên trong phần tử box */
+        .categories .box-container .box img {
+            /* Khoảng cách margin của hình ảnh */
+            margin: 1rem 0;
+            /* Độ cao của hình ảnh */
+            height: 15rem;
+        }
+
+        /* Phần CSS cho phần danh mục sản phẩm */
+        .categories .box-container .box h3 {
+            /* Thiết lập kích thước và màu chữ cho tiêu đề */
+            font-size: 2rem;
+            color: var(--black);
+            /* Thiết lập độ cao dòng */
+            line-height: 1.8;
+        }
+
+        .categories .box-container .box p {
+            /* Thiết lập kích thước và màu chữ cho đoạn văn */
+            font-size: 1.7rem;
+            color: var(--light-color);
+            /* Thiết lập độ cao dòng */
+            line-height: 1.8;
+            /* Thiết lập khoảng cách giữa các phần tử */
+            padding: 1rem 0;
+        }
+
+/* Phần CSS cho phần đánh giá */
+.review .review-slider {
+    /* Khoảng cách giữa lề ngoài và các phần tử bên trong */
+    padding: 1rem;
+}
+
+    .review .review-slider .box {
+        /* Thiết lập nền và bo tròn cho hộp chứa */
+        background: #fff;
+        border-radius: .5rem;
+        /* Căn giữa nội dung */
+        text-align: center;
+        /* Khoảng cách bên trong hộp */
+        padding: 3rem 2rem;
+        /* Thiết lập viền */
+        outline-offset: -1rem;
+        outline: var(--outline); /* Biến được định nghĩa ở đâu đó */
+        /* Hiệu ứng khi hover */
+        transition: .2s linear;
+    }
+
+        .review .review-slider .box:hover {
+            /* Thay đổi viền khi hover */
+            outline-offset: 0rem;
+            outline: var(--outline-hover); /* Biến được định nghĩa ở đâu đó */
+        }
+
+        .review .review-slider .box img {
+            /* Thiết lập kích thước và bo tròn cho hình ảnh */
+            height: 10rem;
+            width: 10rem;
+            border-radius: 50%;
+        }
+
+        /* Thiết lập padding cho phần nội dung của hộp đánh giá trong carousel */
+        .review .review-slider .box p {
+            padding: 1rem 0; /* Padding trên và dưới là 1rem, không có padding ở hai bên */
+            line-height: 1.8rem; /* Đặt độ cao dòng là 1.8rem */
+            color: var(--light-color); /* Màu chữ là màu ánh sáng đã được định nghĩa trước đó */
+            font-size: 1.5rem; /* Đặt kích thước chữ là 1.5rem */
+        }
+
+        /* Thiết lập padding dưới cho tiêu đề trong hộp đánh giá của carousel */
+        .review .review-slider .box h3 {
+            padding-bottom: .5rem; /* Padding dưới là 0.5rem */
+            color: var(--black); /* Màu chữ là màu đen đã được định nghĩa trước đó */
+            font-size: 2.2rem; /* Đặt kích thước chữ là 2.2rem */
+        }
+
+        /* Thiết lập màu sắc và kích thước cho icon sao trong hộp đánh giá của carousel */
+        .review .review-slider .box .stars i {
+            color: var(--orange); /* Màu sắc của icon sao là màu cam đã được định nghĩa trước đó */
+            font-size: 1.7rem; /* Đặt kích thước icon sao là 1.7rem */
+        }
+
+
+/*========= phần section blogs ========== */
+.blogs .box-container {
+    /* Sử dụng grid để bố trí các box */
+    display: grid;
+    /* Thiết lập số lượng cột của grid và kích thước của mỗi cột */
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    /* Khoảng cách giữa các box */
+    gap: 1.5rem;
+}
+
+    .blogs .box-container .box {
+        /* Ẩn đi phần nội dung vượt quá khung của box */
+        overflow: hidden;
+        /* Bo tròn viền của box */
+        border-radius: .5rem;
+        /* Hiệu ứng bóng mờ cho box */
+        box-shadow: var(--box-shadow);
+        /* Màu nền của box */
+        background: #fff;
+    }
+
+        .blogs .box-container .box img {
+            /* Thiết lập kích thước của hình ảnh trong box */
+            height: 25rem;
+            width: 100%;
+            /* Hiệu ứng cắt tỉa hình ảnh sao cho vừa với kích thước của box */
+            object-fit: cover;
+        }
+
+        .blogs .box-container .box .content {
+            /* Khoảng cách giữa nội dung và biên của box */
+            padding: 2rem;
+        }
+
+            .blogs .box-container .box .content .icons {
+                /* Bố trí các biểu tượng theo chiều ngang và căn giữa */
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                /* Khoảng cách dưới cùng của biểu tượng */
+                padding-bottom: 1.5rem;
+                /* Khoảng cách giữa các biểu tượng và nội dung */
+                margin-bottom: 1rem;
+                /* Tạo đường viền dưới cùng của phần icons */
+                border-bottom: 1px solid #ccc;
+            }
+
+                /* Định dạng các liên kết trong phần icon của nội dung box trong phần blogs */
+                .blogs .box-container .box .content .icons a {
+                    color: var(--light-color); /* Thiết lập màu chữ là màu nhạt */
+                    font-size: 1.5rem; /* Thiết lập kích thước chữ */
+                }
+
+                    /* Khi di chuột qua các liên kết trong phần icon của nội dung box trong phần blogs */
+                    .blogs .box-container .box .content .icons a:hover {
+                        color: var(--black); /* Thay đổi màu chữ thành màu đen */
+                    }
+
+                    /* Định dạng biểu tượng trong các liên kết của phần icon trong nội dung box trong phần blogs */
+                    .blogs .box-container .box .content .icons a i {
+                        color: var(--orange); /* Thiết lập màu của biểu tượng là màu cam */
+                        padding-right: .5rem; /* Tạo khoảng cách bên phải giữa biểu tượng và nội dung */
+                    }
+
+            /* Định dạng tiêu đề của nội dung trong box trong phần blogs */
+            .blogs .box-container .box .content h3 {
+                line-height: 1.8; /* Thiết lập độ cao dòng */
+                color: var(--black); /* Thiết lập màu chữ là màu đen */
+                font-size: 2.2rem; /* Thiết lập kích thước chữ */
+                padding: .5rem 0; /* Tạo khoảng cách trên và dưới cho tiêu đề */
+            }
+
+            /* Định dạng đoạn văn của nội dung trong box trong phần blogs */
+            .blogs .box-container .box .content p {
+                line-height: 1.8; /* Thiết lập độ cao dòng */
+                color: var(--light-color); /* Thiết lập màu chữ là màu nhạt */
+                font-size: 1.5rem; /* Thiết lập kích thước chữ */
+                padding: .5rem 0; /* Tạo khoảng cách trên và dưới cho đoạn văn */
+            }
+
+
+/* ========phần section footer==============  */
+/* Thiết lập nền cho phần footer là màu trắng */
+.footer {
+    background: #fff;
+}
+
+    /* Thiết lập hiển thị cho các phần tử trong box-container là grid */
+    .footer .box-container {
+        display: grid;
+        /* Tạo các cột có kích thước tự động, với kích thước tối thiểu là 25rem và tối đa là 1fr (chia đều phần còn lại) */
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        /* Đặt khoảng cách giữa các phần tử là 1.5rem */
+        gap: 1.5rem;
+    }
+
+        /* Thiết lập kiểu chữ, màu sắc và padding cho tiêu đề trong các box */
+        .footer .box-container .box h3 {
+            /* Kích thước chữ là 2.5rem */
+            font-size: 2.5rem;
+            /* Màu chữ là màu đen */
+            color: var(--black);
+            /* Khoảng cách padding trên và dưới là 1rem */
+            padding: 1rem 0;
+        }
+
+            /* Thiết lập màu sắc cho icon trong tiêu đề */
+            .footer .box-container .box h3 i {
+                /* Màu của icon là màu cam */
+                color: var(--orange);
+            }
+
+        /* Thiết lập kiểu chữ, màu sắc và padding cho các liên kết trong box */
+        .footer .box-container .box a {
+            /* Hiển thị các liên kết dưới dạng block để chiếm toàn bộ chiều rộng của box */
+            display: block;
+            /* Kích thước chữ là 1.5rem */
+            font-size: 1.5rem;
+            /* Màu chữ là màu sáng */
+            color: var(--light-color);
+            /* Khoảng cách padding trên và dưới là 1rem */
+            padding: 1rem 0;
+        }
+
+            /* Thiết lập màu sắc cho icon trong các liên kết */
+            .footer .box-container .box a i {
+                /* Màu của icon là màu cam */
+                color: var(--orange);
+                /* Khoảng cách margin bên phải là 0.5rem */
+                margin-right: 0.5rem;
+                /* Không cho icon co lại khi không cần thiết */
+                flex-shrink: 0;
+            }
+
+            /* Khi di chuột qua các phần tử a trong box-container của footer và hover, thêm khoảng trống bên phải cho biểu tượng */
+            .footer .box-container .box a:hover i {
+                padding-right: 2rem;
+            }
+
+        /* Thiết lập kiểu dáng cho đoạn văn bản trong box-container của footer */
+        .footer .box-container .box p {
+            line-height: 1.8; /* Đặt độ cao dòng */
+            font-size: 1.5rem; /* Đặt kích thước chữ */
+            color: var(--light-color); /* Đặt màu chữ */
+            padding: 1rem 0; /* Khoảng cách giữa các đoạn văn bản */
+        }
+
+        /* Thiết lập kiểu dáng cho các phần tử a trong phần chia sẻ của box-container của footer */
+        .footer .box-container .box .share a {
+            height: 4rem; /* Đặt chiều cao của phần tử a */
+            width: 4rem; /* Đặt chiều rộng của phần tử a */
+            line-height: 4rem; /* Đặt độ cao dòng của phần tử a */
+            border-radius: .5rem; /* Đặt bo góc cho phần tử a */
+            font-size: 2rem; /* Đặt kích thước chữ */
+            color: var(--black); /* Đặt màu chữ */
+            margin-left: .2rem; /* Đặt khoảng cách trái */
+            background: #eee; /* Đặt màu nền */
+            text-align: center; /* Căn giữa nội dung của phần tử a */
+        }
+
+            /* Khi di chuột qua các phần tử a trong phần chia sẻ của box-container của footer và hover, thay đổi màu nền và màu chữ */
+            .footer .box-container .box .share a:hover {
+                background: var(--orange); /* Đổi màu nền */
+                color: #fff; /* Đổi màu chữ */
+            }
+
+        /* Thiết lập kiểu dáng cho hộp thư điện tử trong box-container của footer */
+        .footer .box-container .box .email {
+            width: 100%; /* Đặt chiều rộng */
+            margin: .7rem 0; /* Đặt khoảng cách trên dưới */
+            padding: 1rem; /* Đặt lề bên trong */
+            border-radius: .5rem; /* Đặt bo góc */
+            background: #eee; /* Đặt màu nền */
+            font-size: 1.6rem; /* Đặt kích thước chữ */
+            color: var(--black); /* Đặt màu chữ */
+            text-transform: none; /* Không chuyển đổi chữ hoa thành chữ thường */
+        }
+
+        /* Đặt lại margin và chiều cao của hình ảnh thanh toán */
+        .footer .box-container .box .payment-img {
+            margin-top: 2rem; /* Khoảng cách từ phần trên của hình ảnh thanh toán */
+            height: 3rem; /* Đặt chiều cao của hình ảnh thanh toán */
+        }
+
+    /* Định dạng về văn bản cho phần tín dụng */
+    .footer .credit {
+        text-align: center; /* Căn giữa văn bản */
+        margin-top: 2rem; /* Khoảng cách từ phần trên của phần tín dụng */
+        padding: 1rem; /* Đặt lề phần bên trong của phần tín dụng */
+        padding-top: 2.5rem; /* Đặt khoảng cách từ phần trên của phần tín dụng */
+        font-size: 2rem; /* Đặt kích thước của văn bản */
+        color: var(--black); /* Đặt màu văn bản */
+        border-top: 1px solid #ccc; /* Đặt viền trên của phần tín dụng */
+    }
+
+        /* Định dạng về màu sắc cho phần tín dụng */
+        .footer .credit span {
+            color: var(--orange); /* Đặt màu sắc cho phần mở rộng "span" trong phần tín dụng */
+        }
+
+
+
+
+
+/* Thiết lập kích thước font của HTML khi chiều rộng màn hình dưới 992px */
+@media (max-width:991px) {
+    html {
+        font-size: 55%; /* Thiết lập kích thước font là 55% của font mặc định */
+    }
+
+    .header {
+        padding: 2rem; /* Thêm padding cho phần header */
+    }
+
+    section {
+        padding: 2rem; /* Thêm padding cho các phần section */
+    }
+}
+
+/* Thiết lập các quy tắc cho màn hình có chiều rộng dưới 769px */
+@media (max-width:768px) {
+    /* Hiển thị nút menu */
+    #menu-btn {
+        display: inline-block; /* Hiển thị phần tử như một khối trên cùng một dòng với các phần tử khác */
+    }
+    /* Định dạng form tìm kiếm trong header */
+    .header .search-form {
+        width: 90%; /* Thiết lập chiều rộng của form tìm kiếm là 90% */
+    }
+    /* Thiết lập navbar */
+    .header .navbar {
+        position: absolute; /* Đặt vị trí tuyệt đối cho navbar */
+        top: 110%; /* Dịch chuyển navbar xuống dưới phần header */
+        right: -110%; /* Dịch chuyển navbar ra ngoài phần header */
+        width: 30rem; /* Thiết lập chiều rộng của navbar là 30rem */
+        box-shadow: var(--box-shadow); /* Thêm shadow */
+        border-radius: .5rem; /* Bo góc cho navbar */
+        background: #fff; /* Màu nền của navbar */
+    }
+    /* Thiết lập kiểu dáng cho các liên kết trong navbar */
+    header .navbar a {
+        font-size: 2rem; /* Thiết lập kích thước font cho các liên kết là 2rem */
+        margin: 2rem 2.5rem; /* Thiết lập margin cho các liên kết */
+        display: block; /* Hiển thị các liên kết dưới dạng block */
+    }
+}
+
+/* Thiết lập kích thước font của HTML khi chiều rộng màn hình dưới 451px */
+@media (max-width:450px) {
+    html {
+        font-size: 50%; /* Thiết lập kích thước font là 50% của font mặc định */
+    }
+
+    .heading {
+        font-size: 2.5rem; /* Thiết lập kích thước font chữ cho tiêu đề là 2.5rem */
+    }
+
+    .footer {
+        text-align: center; /* Căn nội dung của footer vào giữa theo chiều ngang */
+    }
+}
+
+
+/* Thiết lập kiểu hiển thị cho form đăng nhập */
+.header .login-form {
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    top: 110%; /* Cách top 110% so với phần header */
+    right: -110%; /* Dịch sang phải 110% so với phần header */
+    width: 30rem; /* Độ rộng của form là 30rem */
+    box-shadow: var(--box-shadow); /* Đổ bóng sử dụng biến --box-shadow */
+    padding: 2rem; /* Padding bên trong form */
+    border-radius: .5rem; /* Bo tròn viền của form */
+    background: #fff; /* Màu nền là màu trắng */
+    text-align: center; /* Căn giữa nội dung */
+}
+
+/* Thiết lập kiểu hiển thị cho tiêu đề của form đăng nhập */
+.header .login-form h3 {
+    font-size: 2rem; /* Cỡ chữ là 2rem */
+    text-transform: uppercase; /* Chuyển đổi thành chữ in hoa */
+    color: var(--black); /* Màu chữ sử dụng biến --black */
+}
+
+/* Thiết lập kiểu hiển thị cho các ô input trong form đăng nhập */
+.header .login-form .box {
+    width: 100%; /* Độ rộng là 100% */
+    margin: .7rem 0; /* Tạo khoảng cách trên và dưới là 0.7rem */
+    background: #eee; /* Màu nền là màu xám nhạt */
+    border-radius: .5rem; /* Bo tròn viền của ô input */
+    padding: 1rem; /* Padding bên trong ô input */
+    font-size: 1.6rem; /* Cỡ chữ là 1.6rem */
+    color: var(--black); /* Màu chữ sử dụng biến --black */
+    text-transform: none; /* Không chuyển đổi chữ thành in hoa */
+}
+
+/* Định dạng phần tử <p> trong phần form đăng nhập của header */
+.header .login-form p {
+    font-size: 1.4rem; /* Thiết lập kích thước font là 1.4rem */
+    padding: .5rem 0; /* Thiết lập padding 0.5rem ở trên và dưới, 0 ở trái và phải */
+    color: var(--light-color); /* Thiết lập màu chữ dựa trên biến --light-color */
+}
+
+/* Định dạng phần tử <a> trong phần form đăng nhập của header */
+.header .login-form p a {
+    color: var(--orange); /* Thiết lập màu chữ dựa trên biến --orange */
+    text-decoration: underline; /* Gạch chân chữ */
+}
+
+/* Định dạng khi phần tử có class "active" trong phần form đăng nhập của header */
+.header .login-form.active {
+    right: 2rem; /* Di chuyển phần tử sang phải 2rem */
+    transition: .4s linear; /* Thiết lập hiệu ứng chuyển động trong 0.4s với kiểu chuyển động tuyến tính */
+}
+
+     /* ========phần section Shopnow ============*/
+section{
+    padding: 2rem 9%;
+}
+/* Định dạng phần tử có lớp "home" */
+.home {
+    /* Thiết lập hiển thị thành flexbox để căn giữa nội dung */
+    display: flex;
+    /* Căn dọc nội dung vào giữa */
+    align-items: center;
+    /* Căn ngang nội dung vào giữa */
+    justify-content: center;
+    /* Thiết lập hình nền là một hình ảnh */
+    background: url(../img/Shopnow/banner1.jpg) no-repeat;
+    /* Căn hình nền theo trung tâm của phần tử */
+    background-position: center;
+    /* Thiết lập kích thước của hình nền sao cho nó bao phủ toàn bộ phần tử */
+    background-size: cover;
+    /* Khoảng cách từ trên xuống cho phần tử */
+    padding-top: 17rem;
+    /* Khoảng cách từ dưới lên cho phần tử */
+    padding-bottom: 10rem;
+}
+/* Dòng này căn giữa nội dung trong phần .content */
+.home .content{
+    text-align: center;
+    /* Đặt chiều rộng của phần .content là 60rem */
+    width: 60rem;
+}
+
+/* Định dạng cho phần tiêu đề h3 trong phần .content */
+.home .content h3{
+    /* Thiết lập màu chữ là màu đen */
+    color: var(--black);
+    /* Đặt kích thước chữ là 3rem */
+    font-size: 3rem;
+}
+
+/* Định dạng cho phần span trong phần tiêu đề h3 trong .content */
+.home .content h3 span{
+    /* Đặt màu chữ của span là màu cam */
+    color: var(--orange);
+}
+
+/* Định dạng cho phần đoạn văn bản p trong phần .content */
+.home .content p{
+    /* Đặt màu chữ của đoạn văn là màu sáng */
+    color: var(--light-color);
+    /* Đặt kích thước chữ là 1.7rem */
+    font-size: 1.7rem;
+    /* Tạo khoảng cách ở trên và dưới của đoạn văn bản */
+    padding: 1rem 0;
+    /* Đặt độ cao dòng là 1.8 */
+    line-height: 1.8;
+}
+
+            /*========= phần section features ===========*/
+
+/* Căn giữa nội dung của .heading */
+.heading{
+    text-align: center;
+    /* Khoảng cách giữa nội dung và viền dưới */
+    padding: 2rem 0;
+    padding-bottom: 3rem;
+    /* Kích thước chữ cho tiêu đề */
+    font-size: 3.5rem;
+    /* Màu chữ */
+    color: var(--black);
+}
+
+/* Tạo hiệu ứng nổi bật cho phần chữ trong thẻ <span> của .heading */
+.heading span{
+    /* Màu nền */
+    background: var(--orange);
+    /* Màu chữ */
+    color: #fff;
+    /* Hiển thị phần chữ là một block riêng biệt */
+    display: inline-block;
+    /* Khoảng cách từ chữ đến lề trên và dưới */
+    padding: .5rem 3rem;
+    /* Tạo hiệu ứng cạnh bằng cách cắt lát */
+    clip-path: polygon(100% 0,93% 50%,100% 99%,0% 100%,7% 50%,0% 0%);
+}
+
+/* Thiết lập hiển thị dạng grid cho phần .box-container */
+.features .box-container{
+    /* Hiển thị các box theo lưới */
+    display: grid;
+    /* Các cột tự động điều chỉnh kích thước tối thiểu và tối đa */
+    grid-template-columns: repeat(auto-fit, minmax(30rem,1fr));
+    /* Khoảng cách giữa các box */
+    gap: 1.5rem;
+}
+
+/* Thiết lập style cho từng box */
+.features .box-container .box{
+    /* Khoảng cách từ nội dung đến viền của box */
+    padding: 3rem 2rem; 
+    /* Màu nền của box */
+    background: #fff;
+    /* Đường viền */
+    outline: var(--outline);
+    /* Tạo khoảng cách giữa viền và nội dung */
+    outline-offset: -1rem ;
+    /* Căn giữa nội dung */
+    text-align: center;
+    /* Đổ bóng cho box */
+    box-shadow: var(--box-shadow);
+}
+
+/* Khi hover lên box, hiển thị viền sẽ được mô tả bởi biến CSS var(--outline-hover) */
+.features .box-container .box:hover {
+    outline: var(--outline-hover);
+    outline-offset: 0rem; /* Khoảng cách từ viền đến phần nội dung bên trong */
+}
+
+/* Định dạng ảnh bên trong box */
+.features .box-container .box img {
+    margin: 1rem 0; /* Khoảng cách giữa ảnh và các phần nội dung xung quanh */
+    height: 15rem; /* Đặt chiều cao của ảnh */
+}
+
+/* Định dạng tiêu đề của box */
+.features .box-container .box h3 {
+    font-size: 2.5rem; /* Kích thước chữ của tiêu đề */
+    line-height: 1.8; /* Độ dài dòng */
+    color: var(--black); /* Màu chữ của tiêu đề */
+}
+
+/* Định dạng đoạn văn bản của box */
+.features .box-container .box p {
+    font-size: 1.5rem; /* Kích thước chữ của đoạn văn bản */
+    line-height: 1.8; /* Độ dài dòng */
+    color: var(--light-color); /* Màu chữ của đoạn văn bản */
+    padding: 1rem 0; /* Khoảng cách giữa đoạn văn bản và các phần xung quanh */
+}
+
+
+        /* =========phần section product =============*/
+
+/* Thiết lập padding cho phần tử .product-slide */
+.products .product-slide{
+    padding: 1rem;
+}
+
+/* Đối với phần tử đầu tiên trong .product-slide, thêm margin-bottom */
+.products .product-slide:first-child{
+    margin-bottom: 2rem;
+}
+
+/* Thiết lập các thuộc tính cho phần tử .box trong .product-slide */
+.products .product-slide .box{
+    background: #fff; /* Đặt màu nền cho .box là màu trắng */
+    border-radius: .5rem; /* Bo tròn góc của .box */
+    text-align: center; /* Căn giữa nội dung của .box */
+    padding: 3rem 2rem; /* Thiết lập padding cho .box */
+    outline-offset: -1rem; /* Đặt khoảng cách của viền ngoài là -1rem */
+    outline: var(--outline); /* Đặt viền ngoài cho .box */
+    box-shadow: var(--box-shadow); /* Đổ bóng cho .box */
+    transition: .2s linear; /* Thiết lập hiệu ứng chuyển động khi hover */
+}
+
+/* Khi hover vào .box trong .product-slide, thay đổi viền ngoài */
+.products .product-slide .box:hover{
+    outline-offset: 0rem; /* Đặt khoảng cách của viền ngoài là 0rem khi hover */
+    outline: var(--outline-hover); /* Đặt viền ngoài cho .box khi hover */
+}
+
+/* Đặt chiều cao của hình ảnh trong .box */
+.products .product-slide .box img{
+    height: 20rem; /* Đặt chiều cao của hình ảnh là 20rem */
+}
+
+/* Thiết lập kích thước và màu sắc cho tiêu đề của sản phẩm */
+.products .product-slide .box h3 {
+    font-size: 2.5rem; /* Kích thước chữ */
+    color: var(--black); /* Màu chữ */
+}
+
+/* Thiết lập kích thước và màu sắc cho giá của sản phẩm */
+.products .product-slide .box .prince {
+    font-size: 2rem; /* Kích thước chữ */
+    color: var(--light-color); /* Màu chữ */
+    padding: .5rem 0; /* Khoảng cách giữa các phần tử */
+}
+
+/* Thiết lập kích thước và màu sắc cho số lượng sao đánh giá */
+.products .product-slide .box .start i {
+    font-size: 1.7rem; /* Kích thước biểu tượng */
+    color: var(--orange); /* Màu biểu tượng */
+    padding: .5rem 0; /* Khoảng cách giữa các phần tử */
+}
+
+
+     /* ========phần section categories========== */
+
+/* Thiết lập hiển thị của phần tử container thành grid */
+.categories .box-container {
+    display: grid;
+    /* Thiết lập các cột của grid: các cột sẽ tự động điều chỉnh kích thước để sát vào container, với kích thước tối thiểu là 26rem và tối đa là 1fr (chia đều khoảng trống) */
+    grid-template-columns: repeat(auto-fit, minmax(26rem,1fr));
+    /* Khoảng cách giữa các phần tử con của grid */
+    gap: 1.5rem;
+}
+
+/* Thiết lập kiểu dáng cho phần tử box */
+.categories .box-container .box {
+    /* Khoảng cách padding của phần tử */
+    padding: 3rem 2rem;
+    /* Bo góc của phần tử */
+    border-radius: .5rem;
+    /* Màu nền của phần tử */
+    background: #fff;
+    /* Hiển thị bóng đổ */
+    box-shadow: var(--box-shadow);
+    /* Đặt đường viền cho phần tử */
+    outline: var(--outline);
+    /* Đặt độ lệch của đường viền */
+    outline-offset: -1rem;
+    /* Căn giữa nội dung của phần tử */
+    text-align: center;
+}
+
+/* Khi rê chuột vào phần tử box */
+.categories .box-container .box:hover {
+    /* Đặt lại đường viền khi hover */
+    outline: var(--outline-hover);
+    /* Đặt lại độ lệch của đường viền khi hover */
+    outline-offset: 0rem;
+}
+
+/* Thiết lập kiểu dáng cho hình ảnh bên trong phần tử box */
+.categories .box-container .box img {
+    /* Khoảng cách margin của hình ảnh */
+    margin: 1rem 0;
+    /* Độ cao của hình ảnh */
+    height: 15rem;
+}
+
+/* Phần CSS cho phần danh mục sản phẩm */
+.categories .box-container .box h3 {
+    /* Thiết lập kích thước và màu chữ cho tiêu đề */
+    font-size: 2rem;
+    color: var(--black);
+    /* Thiết lập độ cao dòng */
+    line-height: 1.8;
+}
+
+.categories .box-container .box p {
+    /* Thiết lập kích thước và màu chữ cho đoạn văn */
+    font-size: 1.7rem;
+    color: var(--light-color);
+    /* Thiết lập độ cao dòng */
+    line-height: 1.8;
+    /* Thiết lập khoảng cách giữa các phần tử */
+    padding: 1rem 0;
+}
+
+/* Phần CSS cho phần đánh giá */
+.review .review-slider {
+    /* Khoảng cách giữa lề ngoài và các phần tử bên trong */
+    padding: 1rem;
+}
+
+.review .review-slider .box {
+    /* Thiết lập nền và bo tròn cho hộp chứa */
+    background: #fff;
+    border-radius: .5rem;
+    /* Căn giữa nội dung */
+    text-align: center;
+    /* Khoảng cách bên trong hộp */
+    padding: 3rem 2rem;
+    /* Thiết lập viền */
+    outline-offset: -1rem;
+    outline: var(--outline); /* Biến được định nghĩa ở đâu đó */
+    /* Hiệu ứng khi hover */
+    transition: .2s linear;
+}
+
+.review .review-slider .box:hover {
+    /* Thay đổi viền khi hover */
+    outline-offset: 0rem;
+    outline: var(--outline-hover); /* Biến được định nghĩa ở đâu đó */
+}
+
+.review .review-slider .box img {
+    /* Thiết lập kích thước và bo tròn cho hình ảnh */
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+}
+
+/* Thiết lập padding cho phần nội dung của hộp đánh giá trong carousel */
+.review .review-slider .box p {
+    padding: 1rem 0; /* Padding trên và dưới là 1rem, không có padding ở hai bên */
+    line-height: 1.8rem; /* Đặt độ cao dòng là 1.8rem */
+    color: var(--light-color); /* Màu chữ là màu ánh sáng đã được định nghĩa trước đó */
+    font-size: 1.5rem; /* Đặt kích thước chữ là 1.5rem */
+}
+
+/* Thiết lập padding dưới cho tiêu đề trong hộp đánh giá của carousel */
+.review .review-slider .box h3 {
+    padding-bottom: .5rem; /* Padding dưới là 0.5rem */
+    color: var(--black); /* Màu chữ là màu đen đã được định nghĩa trước đó */
+    font-size: 2.2rem; /* Đặt kích thước chữ là 2.2rem */
+}
+
+/* Thiết lập màu sắc và kích thước cho icon sao trong hộp đánh giá của carousel */
+.review .review-slider .box .stars i {
+    color: var(--orange); /* Màu sắc của icon sao là màu cam đã được định nghĩa trước đó */
+    font-size: 1.7rem; /* Đặt kích thước icon sao là 1.7rem */
+}
+
+
+       /*========= phần section blogs ========== */
+.blogs .box-container {
+    /* Sử dụng grid để bố trí các box */
+    display: grid;
+    /* Thiết lập số lượng cột của grid và kích thước của mỗi cột */
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    /* Khoảng cách giữa các box */
+    gap: 1.5rem;
+}
+
+.blogs .box-container .box {
+    /* Ẩn đi phần nội dung vượt quá khung của box */
+    overflow: hidden;
+    /* Bo tròn viền của box */
+    border-radius: .5rem;
+    /* Hiệu ứng bóng mờ cho box */
+    box-shadow: var(--box-shadow);
+    /* Màu nền của box */
+    background: #fff;
+}
+
+.blogs .box-container .box img {
+    /* Thiết lập kích thước của hình ảnh trong box */
+    height: 25rem;
+    width: 100%;
+    /* Hiệu ứng cắt tỉa hình ảnh sao cho vừa với kích thước của box */
+    object-fit: cover;
+}
+
+.blogs .box-container .box .content {
+    /* Khoảng cách giữa nội dung và biên của box */
+    padding: 2rem;
+}
+
+.blogs .box-container .box .content .icons {
+    /* Bố trí các biểu tượng theo chiều ngang và căn giữa */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Khoảng cách dưới cùng của biểu tượng */
+    padding-bottom: 1.5rem;
+    /* Khoảng cách giữa các biểu tượng và nội dung */
+    margin-bottom: 1rem;
+    /* Tạo đường viền dưới cùng của phần icons */
+    border-bottom: 1px solid #ccc;
+}
+
+/* Định dạng các liên kết trong phần icon của nội dung box trong phần blogs */
+.blogs .box-container .box .content .icons a {
+    color: var(--light-color); /* Thiết lập màu chữ là màu nhạt */
+    font-size: 1.5rem; /* Thiết lập kích thước chữ */
+}
+
+/* Khi di chuột qua các liên kết trong phần icon của nội dung box trong phần blogs */
+.blogs .box-container .box .content .icons a:hover {
+    color: var(--black); /* Thay đổi màu chữ thành màu đen */
+}
+
+/* Định dạng biểu tượng trong các liên kết của phần icon trong nội dung box trong phần blogs */
+.blogs .box-container .box .content .icons a i {
+    color: var(--orange); /* Thiết lập màu của biểu tượng là màu cam */
+    padding-right: .5rem; /* Tạo khoảng cách bên phải giữa biểu tượng và nội dung */
+}
+
+/* Định dạng tiêu đề của nội dung trong box trong phần blogs */
+.blogs .box-container .box .content h3 {
+    line-height: 1.8; /* Thiết lập độ cao dòng */
+    color: var(--black); /* Thiết lập màu chữ là màu đen */
+    font-size: 2.2rem; /* Thiết lập kích thước chữ */
+    padding: .5rem 0; /* Tạo khoảng cách trên và dưới cho tiêu đề */
+}
+
+/* Định dạng đoạn văn của nội dung trong box trong phần blogs */
+.blogs .box-container .box .content p {
+    line-height: 1.8; /* Thiết lập độ cao dòng */
+    color: var(--light-color); /* Thiết lập màu chữ là màu nhạt */
+    font-size: 1.5rem; /* Thiết lập kích thước chữ */
+    padding: .5rem 0; /* Tạo khoảng cách trên và dưới cho đoạn văn */
+}
+
+
+    /* ========phần section footer==============  */
+/* Thiết lập nền cho phần footer là màu trắng */
+.footer {
+    background: #fff;
+}
+
+/* Thiết lập hiển thị cho các phần tử trong box-container là grid */
+.footer .box-container {
+    display: grid;
+    /* Tạo các cột có kích thước tự động, với kích thước tối thiểu là 25rem và tối đa là 1fr (chia đều phần còn lại) */
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    /* Đặt khoảng cách giữa các phần tử là 1.5rem */
+    gap: 1.5rem;
+}
+
+/* Thiết lập kiểu chữ, màu sắc và padding cho tiêu đề trong các box */
+.footer .box-container .box h3 {
+    /* Kích thước chữ là 2.5rem */
+    font-size: 2.5rem;
+    /* Màu chữ là màu đen */
+    color: var(--black);
+    /* Khoảng cách padding trên và dưới là 1rem */
+    padding: 1rem 0;
+}
+
+/* Thiết lập màu sắc cho icon trong tiêu đề */
+.footer .box-container .box h3 i {
+    /* Màu của icon là màu cam */
+    color: var(--orange);
+}
+
+/* Thiết lập kiểu chữ, màu sắc và padding cho các liên kết trong box */
+.footer .box-container .box a {
+    /* Hiển thị các liên kết dưới dạng block để chiếm toàn bộ chiều rộng của box */
+    display: block;
+    /* Kích thước chữ là 1.5rem */
+    font-size: 1.5rem;
+    /* Màu chữ là màu sáng */
+    color: var(--light-color);
+    /* Khoảng cách padding trên và dưới là 1rem */
+    padding: 1rem 0;
+}
+
+/* Thiết lập màu sắc cho icon trong các liên kết */
+.footer .box-container .box a i {
+    /* Màu của icon là màu cam */
+    color: var(--orange);
+    /* Khoảng cách margin bên phải là 0.5rem */
+    margin-right: 0.5rem;
+    /* Không cho icon co lại khi không cần thiết */
+    flex-shrink: 0;
+}
+
+/* Khi di chuột qua các phần tử a trong box-container của footer và hover, thêm khoảng trống bên phải cho biểu tượng */
+.footer .box-container .box a:hover i {
+    padding-right: 2rem;
+}
+
+/* Thiết lập kiểu dáng cho đoạn văn bản trong box-container của footer */
+.footer .box-container .box p {
+    line-height: 1.8; /* Đặt độ cao dòng */
+    font-size: 1.5rem; /* Đặt kích thước chữ */
+    color: var(--light-color); /* Đặt màu chữ */
+    padding: 1rem 0; /* Khoảng cách giữa các đoạn văn bản */
+}
+
+/* Thiết lập kiểu dáng cho các phần tử a trong phần chia sẻ của box-container của footer */
+.footer .box-container .box .share a {
+    height: 4rem; /* Đặt chiều cao của phần tử a */
+    width: 4rem; /* Đặt chiều rộng của phần tử a */
+    line-height: 4rem; /* Đặt độ cao dòng của phần tử a */
+    border-radius: .5rem; /* Đặt bo góc cho phần tử a */
+    font-size: 2rem; /* Đặt kích thước chữ */
+    color: var(--black); /* Đặt màu chữ */
+    margin-left: .2rem; /* Đặt khoảng cách trái */
+    background: #eee; /* Đặt màu nền */
+    text-align: center; /* Căn giữa nội dung của phần tử a */
+}
+
+/* Khi di chuột qua các phần tử a trong phần chia sẻ của box-container của footer và hover, thay đổi màu nền và màu chữ */
+.footer .box-container .box .share a:hover {
+    background: var(--orange); /* Đổi màu nền */
+    color: #fff; /* Đổi màu chữ */
+}
+
+/* Thiết lập kiểu dáng cho hộp thư điện tử trong box-container của footer */
+.footer .box-container .box .email {
+    width: 100%; /* Đặt chiều rộng */
+    margin: .7rem 0; /* Đặt khoảng cách trên dưới */
+    padding: 1rem; /* Đặt lề bên trong */
+    border-radius: .5rem; /* Đặt bo góc */
+    background: #eee; /* Đặt màu nền */
+    font-size: 1.6rem; /* Đặt kích thước chữ */
+    color: var(--black); /* Đặt màu chữ */
+    text-transform: none; /* Không chuyển đổi chữ hoa thành chữ thường */
+}
+
+/* Đặt lại margin và chiều cao của hình ảnh thanh toán */
+.footer .box-container .box .payment-img{
+    margin-top: 2rem; /* Khoảng cách từ phần trên của hình ảnh thanh toán */
+    height: 3rem; /* Đặt chiều cao của hình ảnh thanh toán */
+}
+
+/* Định dạng về văn bản cho phần tín dụng */
+.footer .credit{
+    text-align: center; /* Căn giữa văn bản */
+    margin-top: 2rem; /* Khoảng cách từ phần trên của phần tín dụng */
+    padding: 1rem; /* Đặt lề phần bên trong của phần tín dụng */
+    padding-top: 2.5rem; /* Đặt khoảng cách từ phần trên của phần tín dụng */
+    font-size: 2rem; /* Đặt kích thước của văn bản */
+    color: var(--black); /* Đặt màu văn bản */
+    border-top: 1px solid #ccc; /* Đặt viền trên của phần tín dụng */
+}
+
+/* Định dạng về màu sắc cho phần tín dụng */
+.footer .credit span{
+    color: var(--orange); /* Đặt màu sắc cho phần mở rộng "span" trong phần tín dụng */
+}
+
+
+
+
+
+/* Thiết lập kích thước font của HTML khi chiều rộng màn hình dưới 992px */
+@media (max-width:991px) {
+    html {
+        font-size: 55%; /* Thiết lập kích thước font là 55% của font mặc định */
+    }
+    .header {
+        padding: 2rem; /* Thêm padding cho phần header */
+    }
+    section {
+        padding: 2rem; /* Thêm padding cho các phần section */
+    }
+}
+
+/* Thiết lập các quy tắc cho màn hình có chiều rộng dưới 769px */
+@media (max-width:768px) {
+    /* Hiển thị nút menu */
+    #menu-btn {
+        display: inline-block;  /* Hiển thị phần tử như một khối trên cùng một dòng với các phần tử khác */
+    }
+    /* Định dạng form tìm kiếm trong header */
+    .header .search-form {
+        width: 90%; /* Thiết lập chiều rộng của form tìm kiếm là 90% */
+    }
+    /* Thiết lập navbar */
+    .header .navbar {
+        position: absolute; /* Đặt vị trí tuyệt đối cho navbar */
+        top: 110%; /* Dịch chuyển navbar xuống dưới phần header */
+        right: -110%; /* Dịch chuyển navbar ra ngoài phần header */
+        width: 30rem; /* Thiết lập chiều rộng của navbar là 30rem */
+        box-shadow: var(--box-shadow); /* Thêm shadow */
+        border-radius: .5rem; /* Bo góc cho navbar */
+        background: #fff; /* Màu nền của navbar */
+    }
+    /* Thiết lập kiểu dáng cho các liên kết trong navbar */
+    header .navbar a {
+        font-size: 2rem; /* Thiết lập kích thước font cho các liên kết là 2rem */
+        margin: 2rem 2.5rem; /* Thiết lập margin cho các liên kết */
+        display: block; /* Hiển thị các liên kết dưới dạng block */
+    }
+}
+
+/* Thiết lập kích thước font của HTML khi chiều rộng màn hình dưới 451px */
+@media (max-width:450px) {
+    html {
+        font-size: 50%; /* Thiết lập kích thước font là 50% của font mặc định */
+    }
+    .heading {
+        font-size: 2.5rem; /* Thiết lập kích thước font chữ cho tiêu đề là 2.5rem */
+    }
+    
+    .footer {
+        text-align: center; /* Căn nội dung của footer vào giữa theo chiều ngang */
+    }
+    
+}
+

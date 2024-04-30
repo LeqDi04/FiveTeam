@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Produtt";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<section class="products" id="products">
+    <h1 class="heading"> Tất Cả <span>Sản Phẩm</span> </h1>
+    <div class="swiper product-slide">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="~/img\Products\bot_toi.jpg" alt="">
+                <h3>Bột Tỏi</h3>
+                <div class="prince"> 19.000 VNĐ</div>
+
+                <a href="#" class="btn"> Thêm Vào Giỏ Hàng</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img/Products/cam_thao.jpg" alt="">
+                <h3>Cam Thảo</h3>
+                <div class="prince"> 15.000 VNĐ</div>
+
+                <a href="#" class="btn"> Thêm Vào Giỏ Hàng</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img/Products/bot-dieu-mau.jpg" alt="">
+                <h3>Bột Điều Màu</h3>
+                <div class="prince"> 29.000 VNĐ</div>
+
+                <a href="#" class="btn"> Thêm Vào Giỏ Hàng</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img/Products/chuoi_hot.jpg" alt="">
+                <h3>Chuối Hột</h3>
+                <div class="prince"> 14.000 VNĐ</div>
+
+                <a href="#" class="btn"> Thêm Vào Giỏ Hàng</a>
+            </div>
+            <div class="swiper-slide box">
+                <img src="~/img/Products/bottieuden.jpg" alt="">
+                <h3>Bột Tiêu Đen</h3>
+                <div class="prince"> 5.000 VNĐ</div>
+
+                <a href="#" class="btn"> Thêm Vào Giỏ Hàng</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img/Products/gung.jpg" alt="">
+                <h3>Gừng</h3>
+                <div class="prince"> 9.000 VNĐ</div>
+
+                <a href="#" class="btn"> Thêm Vào Giỏ Hàng</a>
+            </div>
+
+
+            @foreach (var product in Model)
+            {
+                <div class="swiper-slide box">
+                    <img src="@Url.Content(product.Picture)" alt="@product.ProductName">
+                    <h3>@product.ProductName</h3>
+                    <div class="price">@product.Price VNĐ</div>
+                    <a href="#" class="btn">Thêm Vào Giỏ Hàng</a>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</section>

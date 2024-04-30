@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<!-- Phần  Blogs  -->
+<section class="blogs" id="blogs">
+    <h1 class="heading">Bài Viết <span>Của Chúng Tôi</span></h1>
+    <div class="box-container">
+
+        <div class="box">
+            <img src="~/img/Blogs/our1.png" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i>Bởi Tân Đạt</a>
+                    <a href="#"><i class="fas fa-calendar"></i>Ngày 28 Tháng 3, 2024</a>
+                </div>
+                <h3>Phong cách sống lành mạnh</h3>
+                <p>Trải nghiệm cuộc sống an lành và hạnh phúc (được tóm tắt nội dung bài viết...).</p>
+                <a href="#" class="btn">Xem Bài</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="~/img/Blogs/our2.jpg" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i>Bởi Quốc Duy</a>
+                    <a href="#"><i class="fas fa-calendar"></i>Ngày 10 Tháng 4, 2024</a>
+                </div>
+                <h3>Thực phẩm sạch và lợi ích cho sức khỏe</h3>
+                <p>Khám phá những lợi ích tuyệt vời của việc ăn thực phẩm sạch cho sức khỏe và cách chúng ảnh hưởng đến cơ thể của bạn.</p>
+                <a href="#" class="btn">Xem Bài</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="~/img/Blogs/our3.jpg" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i>Bởi Văn Nghĩa</a>
+                    <a href="#"><i class="fas fa-calendar"></i>Ngày 16 Tháng 1, 2024</a>
+                </div>
+                <h3>Cách nhận biết thực phẩm sạch</h3>
+                <p>Hướng dẫn cách nhận biết và chọn lựa thực phẩm sạch để đảm bảo bạn và gia đình luôn ăn uống an toàn.</p>
+                <a href="#" class="btn">Xem Bài</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="~/img/Blogs/our4.jpg" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i>Bởi Việt Toàn</a>
+                    <a href="#"><i class="fas fa-calendar"></i>Ngày 20 Tháng 4, 2024</a>
+                </div>
+                <h3>Thực phẩm hữu cơ: Sự lựa chọn hoàn hảo cho gia đình bạn</h3>
+                <p>Tìm hiểu về lợi ích của việc sử dụng thực phẩm hữu cơ và cách chúng giúp bảo vệ môi trường.</p>
+                <a href="#" class="btn">Xem Bài</a>
+            </div>
+        </div>
+
+
+
+        <div class="box">
+            <img src="~/img/Blogs/our5.jpg" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i>Bởi Minh Sa</a>
+                    <a href="#"><i class="fas fa-calendar"></i>Ngày 25 Tháng 4, 2024</a>
+                </div>
+                <h3>Thực phẩm sạch và ảnh hưởng đến môi trường</h3>
+                <p>Đọc về cách thực phẩm sạch không chỉ tốt cho sức khỏe con người mà còn có lợi cho môi trường.</p>
+                <a href="#" class="btn">Xem Bài</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="~/img/Blogs/duong.jpg" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i>Bởi Trường Dương</a>
+                    <a href="#"><i class="fas fa-calendar"></i>Ngày 30 Tháng 4, 2024</a>
+                </div>
+                <h3>Thực phẩm sạch và cách bảo quản hiệu quả</h3>
+                <p>Để thực phẩm sạch luôn giữ được chất lượng, cách bảo quản thực phẩm là rất quan trọng. Hãy cùng tìm hiểu các phương pháp bảo quản thực phẩm sạch hiệu quả nhất.</p>
+                <a href="#" class="btn">Xem Bài</a>
+            </div>
+        </div>
+
+
+
+
+        @foreach (var blog in Model)
+        {
+            <div class="box">
+                <img src="@Url.Content(blog.Picture)" alt="@blog.Title">
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"><i class="fas fa-user"></i>@blog.ByUser</a>
+                        <a href="#"><i class="fas fa-calendar"></i>@blog.Date</a>
+                    </div>
+                    <h3>@blog.Title</h3>
+                    <p>...(được tóm tắt nội dung bài viết, giới hạn số ký tự hoặc từ).</p>
+                    <a href="#" class="btn">Xem Bài</a>
+                </div>
+            </div>
+        }
+
+    </div>
+</section>

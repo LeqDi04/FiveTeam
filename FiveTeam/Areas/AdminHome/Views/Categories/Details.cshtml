@@ -1,0 +1,149 @@
+﻿@model FiveTeam.Models.CategoriesFiveTeam
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/AdminHome/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    .heading {
+        font-weight: bolder;
+        text-align: center;
+        padding: 2rem 0;
+        padding-top: 5rem;
+        font-size: 3.5rem;
+        color: var(--black);
+    }
+
+        /* Tạo hiệu ứng nổi bật cho phần chữ trong thẻ <span> của .heading */
+        .heading span {
+            background: #FF8C00;
+            color: #fff;
+            display: inline-block;
+            padding: .5rem 3rem;
+            clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+        }
+
+    .dl-horizontal {
+        width: 60%;
+        margin: 0 auto;
+        border-radius: .5rem;
+        background: #eee;
+        color: var(--black);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        padding: 2px;
+        width: 50%;
+        margin: 0 auto;
+        border-radius: .5rem;
+        background: #eee;
+        color: #FF8C00;
+        font-size: 1.5rem;
+        font-weight: bolder;
+    }
+
+    dt {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+        font-weight: bolder;
+    }
+
+    dd {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    h3 {
+        width: 50%; /* Đặt chiều rộng mong muốn của bảng */
+        margin: 0 auto;
+        font-size: 3rem;
+        color: #FF8C00;
+    }
+
+    .bnt {
+        margin-top: .5rem;
+        display: inline-block;
+        padding: .8rem 2rem;
+        font-size: 1.7rem;
+        border-radius: .5rem;
+        cursor: pointer;
+        background: none; /* Chưa có giá trị nền */
+        font-weight: bolder;
+        margin: 0 auto;
+    }
+
+    /* Định nghĩa các thuộc tính CSS cho class .btn-default */
+    .btn-default {
+        padding: 0.5rem 1rem;
+        font-size: 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: bolder;
+        color: #FF8C00;
+    }
+
+    /* Định nghĩa các thuộc tính CSS cho class .bnt btn-default khi hover */
+    .bnt btn-default:hover {
+        background-color: var(--orange);
+        color: #FF8C00;
+    }
+    h3 {
+        width: 60%;
+        margin: 0 auto;
+        font-size: 3rem;
+        font-weight: bolder;
+        color: #FF8C00;
+    }
+</style>
+
+<h1 class="heading" style="color: #000080"> Details <span>Categories</span> </h1>
+<h3>The Five Team</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal" style="color: #000080">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoriesCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoriesCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoriesName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoriesName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SellOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SellOff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Picture)
+        </dd>
+
+    </dl>
+    <div class="">
+        <div class="col-md-6 col-md-offset-3 text-left">
+            <!-- Sử dụng col-md-6 và col-md-offset-3 để căn giữa và giữ cùng một hàng -->
+            <div class="text-center">
+                <!-- Thêm text-center để căn giữa nội dung -->
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Back to List", "ListCategories", null, new { @class = "btn btn-default" })
+            </div>
+        </div>
+    </div>
+
+</div>

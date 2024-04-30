@@ -1,0 +1,268 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Admin </title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- linkl lấy phông chữ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Areas/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="~/Areas/css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="~/Areas/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/Areas/css/startmin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="~/Areas/css/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="~/Areas/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        #wrapper {
+            color: #FFFFFF;
+        }
+        .navbar-top-links li a {
+            color: #FF9900;
+        }
+
+        .dropdown-menu  li  a {
+            color: #FF9900; /* Màu đen */
+        }
+        a {
+            color: #000080;
+            font-weight: bolder;
+            font-size: 1.5rem;
+            /* Màu trắng */
+        }
+        .custom-search-form .form-control {
+            background-color: #FFFFFF; /* Màu xanh */
+            border-color: #007BFF; /* Màu xanh */
+            color: #ffff; /* Màu trắng cho chữ */
+        }
+
+        .custom-search-form .btn-primary {
+            background-color: #FF9900; /* Màu xanh */
+            border-color: #FF9900; /* Màu xanh */
+        }
+
+            .custom-search-form .btn-primary:hover {
+                background-color: #0056b3; /* Màu xanh nhạt khi hover */
+                border-color: #0056b3; /* Màu xanh nhạt khi hover */
+            }
+        .fa-fw {
+            color: #FF9900;
+        }
+
+        .navbar-inverse .navbar-brand.custom {
+            color: #FF9900;
+            font-size: 4rem;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand custom" href="@Url.Action("ListProduct", "Product")">Quản Lí</a>
+            </div>
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <ul class="nav navbar-nav navbar-left navbar-top-links">
+                <li ><a href="@Url.Action("ListProduct", "Product")"  style="color: #FF9900; border-color: #000080;" ><i class="fa fa-home fa-fw"></i>TheSixTeam</a></li>
+            </ul>
+
+            <ul class="nav navbar-right navbar-top-links">
+                <li class="dropdown navbar-inverse">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> Bình Luận Mới
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 Người Theo Dõi Mới
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Tin Nhắn Đã Gữi
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> Nhiệm Vụ Mới
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Xem Tất Cả Thông Báo</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> Thêm <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Thông tin người dùng</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-gear fa-fw"></i> Cài Đặt</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="@Url.Action("Login","AdminHome")"><i class="fa fa-sign-out fa-fw"></i> Đăng Xuất</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- /.navbar-top-links -->
+        </nav>
+
+        <aside class="sidebar navbar-default" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListProduct", "Product")"><i class="fa fa-edit fa-fw"></i> Quản Lí Sản Phẩm</a>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListCategories", "Categories")"><i class="fa fa-edit fa-fw"></i> Quản Lí giảm giá</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListBlogs", "Blogs")"><i class="fa fa-edit fa-fw"></i> Quản Lí Bài Viết</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListReview", "Review")"><i class="fa fa-edit fa-fw"></i> Quản Lí Đánh Giá</a>
+                    </li>
+
+                    <li>
+                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Quản lí Đơn Hàng</a>
+                    </li>
+                    <li>
+                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Quản lí Khách Hàng</a>
+                    </li>
+                    <li>
+                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Quản lí Tài Khoản và Phân Quyền</a>
+                    </li>
+                    <li>
+                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Quản lí Thể Loại và Danh Mục</a>
+                    </li>
+                    <li>
+                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Quản lý báo cáo</a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Login","AdminHome")"><i class="fa fa-user fa-fw"></i> Trang Đăng Nhập</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Login","AdminHome")"><i class="fa fa-user fa-fw"></i> Trang Đăng xuất</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </aside>
+        <!-- /.sidebar -->
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    @RenderBody()
+    <!-- jQuery -->
+    <script src="~/Areas/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Areas/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Areas/js/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="~/Areas/js/raphael.min.js"></script>
+    <script src="~/Areas/js/morris.min.js"></script>
+    <script src="~/Areas/js/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Areas/js/startmin.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="~/js/script.js"></script>
+
+</body>
+
+</html>

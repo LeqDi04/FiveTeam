@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Revieww";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<!-- phần review  -->
+<section class="review" id="review">
+    <h1 class="heading">Khách Hàng <span>Đánh Giá</span></h1>
+
+    <div class="swiper review-slider">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="~/img\Review\dat.jpg" alt="">
+                <p>sản phẩm rất tốt</p>
+                <h3>Tấn Đạt</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-atl"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img\Review\toan.jpg" alt="">
+                <p>sản phẩm tuyệt vời</p>
+                <h3>Hữu Toàn</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-atl"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img\Review\nghia.jpg" alt="">
+                <p>sản phẩm tốt</p>
+                <h3>Văn Nghĩa</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-atl"></i>
+                </div>
+            </div>
+            <div class="swiper-slide box">
+                <img src="~/img\Review\duy.jpg" alt="">
+                <p>sản phẩm very tốt</p>
+                <h3>Quốc Duy</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-atl"></i>
+                </div>
+            </div>
+            <div class="swiper-slide box">
+                <img src="~/img\Review/duong.jpg" alt="">
+                <p>sản phẩm too tốt</p>
+                <h3>Trường Dương</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-atl"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img/Review/sa.png" alt="">
+                <p>sản phẩm tạm được</p>
+                <h3>Minh Sa</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-atl"></i>
+                </div>
+            </div>
+
+            @foreach (var review in Model)
+            {
+                <div class="swiper-slide box">
+                    <img src="@Url.Content(review.Picture)" alt="@review.NameReview">
+                    <p>@review.ContentReview</p>
+                    <h3>@review.NameReview</h3>
+                    <!-- Corrected star class -->
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-alt"></i>
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+

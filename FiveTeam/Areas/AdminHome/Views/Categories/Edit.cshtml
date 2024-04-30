@@ -1,0 +1,162 @@
+﻿@model FiveTeam.Models.CategoriesFiveTeam
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/AdminHome/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    /* Các thuộc tính chung cho .heading */
+    .heading {
+        font-weight: bolder; /* Đặt độ đậm cho font */
+        text-align: center; /* Canh giữa văn bản */
+        font-size: 3.5rem; /* Kích thước font */
+        color: var(--black); /* Màu chữ */
+        padding: 5rem 0 2rem; /* Padding: trên dưới 5rem, bên trong 0, dưới 2rem */
+    }
+
+        /* Hiệu ứng cho phần chữ trong thẻ <span> của .heading */
+        .heading span {
+            background: #FF8C00; /* Màu nền cho span */
+            color: #fff; /* Màu chữ cho span */
+            display: inline-block; /* Hiển thị như một khối, không đẩy xuống dòng */
+            padding: .5rem 3rem; /* Padding cho span */
+            clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%); /* Định dạng dạng hình */
+        }
+
+    /* Phần form */
+    .form-horizontal {
+        width: 60%; /* Độ rộng của các thành phần form */
+        margin: 0 auto; /* Canh giữa */
+        line-height: 1.5rem; /* Chiều cao dòng */
+        border-radius: .5rem; /* Bo tròn góc */
+        background: #eee; /* Màu nền */
+        color: var(--black); /* Màu chữ */
+        font-size: 1.5rem; /* Kích thước font */
+        font-weight: bolder; /* Độ đậm cho font */
+        align-items: center;
+        margin-top: 10px; /* Khoảng cách trên */
+    }
+
+    .form-group {
+        margin-bottom: 10px; /* Khoảng cách dưới */
+    }
+
+    .control-label {
+        text-align: right; /* Canh phải */
+        margin-top: 10px; /* Khoảng cách trên */
+    }
+
+    .col-md-10 {
+        padding: 0; /* Xóa padding */
+        margin-bottom: 10px; /* Khoảng cách dưới */
+    }
+
+    .form-control {
+        background-color: #eee; /* Màu nền cho control */
+        font-size: 1.5rem; /* Kích thước font */
+        width: 90%; /* Độ rộng */
+    }
+
+        .form-control:hover {
+            color: var(--orange); /* Màu chữ hover */
+            cursor: pointer; /* Con trỏ chuột */
+        }
+
+    /* Nút */
+    .btn-default {
+        padding: 0.5rem 1rem; /* Padding cho nút */
+        font-size: 1.5rem; /* Kích thước font */
+        border-radius: 0.5rem; /* Bo tròn góc */
+        font-weight: bolder; /* Độ đậm cho font */
+        color: #FF8C00; /* Màu chữ */
+    }
+
+        .btn-default:hover {
+            background-color: var(--orange); /* Màu nền hover */
+        }
+
+    /* Nút .bnt */
+    .bnt {
+        margin-top: 1rem; /* Khoảng cách trên */
+        display: inline-block; /* Hiển thị inline-block */
+        padding: .8rem 3rem; /* Padding */
+        font-size: 1.7rem; /* Kích thước font */
+        border-radius: .5rem; /* Bo tròn góc */
+        border: .2rem solid var(--black); /* Đường viền */
+        cursor: pointer; /* Con trỏ chuột */
+        background: none; /* Không có giá trị nền */
+        font-weight: bolder; /* Độ đậm cho font */
+    }
+
+        .bnt:hover {
+            background-color: var(--orange); /* Màu nền hover */
+            color: #FF8C00; /* Màu chữ hover */
+        }
+
+    h3 {
+        width: 50%; /* Độ rộng của tiêu đề h3 */
+        margin: 0 auto; /* Canh giữa */
+        font-size: 3rem; /* Kích thước font */
+        font-weight: bolder; /* Độ đậm cho font */
+        color: #FF8C00; /* Màu chữ */
+    }
+</style>
+
+<h1 class="heading" style="color: #000080"> Edit <span>Products</span> </h1>
+<h3>The Six Team</h3>
+
+@using (Html.BeginForm("Edit", "Categories", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="color: #000080">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoriesCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CategoriesCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CategoriesCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoriesName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CategoriesName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CategoriesName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SellOff, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SellOff, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SellOff, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="fileAnh" class="form-control" />
+                @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="">
+            <div class="col-md-6 col-md-offset-3 text-left ">
+                <div class="text-center">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                    @Html.ActionLink("Back to List", "ListCategories", null, new { @class = "btn btn-default" })
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+}
+

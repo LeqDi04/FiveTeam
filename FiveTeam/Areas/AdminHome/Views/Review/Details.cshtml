@@ -1,0 +1,146 @@
+﻿@model FiveTeam.Models.ReviewFiveTeam
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/AdminHome/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    /* CSS cho tiêu đề */
+    .heading {
+        font-weight: bolder; /* Đặt độ đậm cho font */
+        text-align: center; /* Canh giữa */
+        padding: 2rem 0; /* Padding trên và dưới */
+        padding-top: 5rem; /* Thêm padding trên */
+        font-size: 3.5rem; /* Kích thước font */
+        color: var(--black); /* Màu chữ */
+    }
+
+        /* Hiệu ứng cho phần chữ trong thẻ <span> của .heading */
+        .heading span {
+            background: #FF8C00; /* Màu nền */
+            color: #fff; /* Màu chữ */
+            display: inline-block; /* Hiển thị như một khối */
+            padding: .5rem 3rem; /* Padding cho span */
+            clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%); /* Định dạng dạng hình */
+        }
+
+    /* CSS cho danh sách chi tiết ngang */
+    .dl-horizontal {
+        width: 60%; /* Độ rộng của các thành phần form */
+        margin: 0 auto; /* Canh giữa */
+        line-height: 1.5rem; /* Chiều cao dòng */
+        border-radius: .5rem; /* Bo tròn góc */
+        background: #eee; /* Màu nền */
+        color: var(--black); /* Màu chữ */
+        font-size: 1.5rem; /* Kích thước font */
+        font-weight: bolder; /* Độ đậm cho font */
+        align-items: center;
+    }
+
+    /* CSS cho nhóm form */
+    .form-group {
+        margin-bottom: 5px; /* Khoảng cách dưới */
+    }
+
+    /* CSS cho tiêu đề danh mục */
+    dt {
+        margin-bottom: 15px; /* Khoảng cách dưới */
+        font-size: 1.5rem; /* Kích thước font */
+        font-weight: bolder; /* Độ đậm cho font */
+    }
+
+    /* CSS cho nội dung danh mục */
+    dd {
+        margin-bottom: 10px; /* Khoảng cách dưới */
+        font-size: 1.5rem; /* Kích thước font */
+        cursor: pointer; /* Con trỏ chuột */
+        margin-top: 15px; /* Khoảng cách trên */
+    }
+
+    /* CSS cho tiêu đề h3 */
+    h3 {
+        width: 60%; /* Độ rộng */
+        margin: 0 auto; /* Canh giữa */
+        font-size: 3rem; /* Kích thước font */
+        color: #FF8C00; /* Màu chữ */
+        font-weight: bolder; /* Độ đậm cho font */
+    }
+
+    /* CSS cho nút */
+    .bnt {
+        margin-top: .5rem; /* Khoảng cách trên */
+        display: inline-block; /* Hiển thị inline-block */
+        padding: .8rem 2rem; /* Padding */
+        font-size: 1.7rem; /* Kích thước font */
+        border-radius: .5rem; /* Bo tròn góc */
+        cursor: pointer; /* Con trỏ chuột */
+        background: none; /* Không có giá trị nền */
+        font-weight: bolder; /* Độ đậm cho font */
+        margin: 0 auto; /* Canh giữa */
+    }
+
+    /* CSS cho nút mặc định */
+    .btn-default {
+        padding: 0.5rem 1rem; /* Padding */
+        font-size: 1.5rem; /* Kích thước font */
+        border-radius: 0.5rem; /* Bo tròn góc */
+        font-weight: bolder; /* Độ đậm cho font */
+        color: #FF8C00; /* Màu chữ */
+    }
+
+    /* CSS cho nút khi hover */
+    .bnt btn-default:hover {
+        background-color: var(--orange); /* Màu nền hover */
+        color: #FF8C00; /* Màu chữ hover */
+    }
+</style>
+<h1 class="heading" style="color: #000080"> Details <span>Review</span> </h1>
+<h3>The Six Team</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal" style="color: #000080">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameReview)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameReview)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContentReview)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContentReview)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Picture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start)
+        </dd>
+
+    </dl>
+    <div class="">
+        <div class="col-md-6 col-md-offset-3 text-left">
+            <!-- Sử dụng col-md-6 và col-md-offset-3 để căn giữa và giữ cùng một hàng -->
+            <div class="text-center">
+                <!-- Thêm text-center để căn giữa nội dung -->
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Back to List", "ListReview", null, new { @class = "btn btn-default" })
+            </div>
+        </div>
+    </div>
+</div>

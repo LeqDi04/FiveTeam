@@ -1,0 +1,147 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- linkl lấy phông chữ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+
+</head>
+<body>
+    <!-- phần header -->
+    <header class="header">
+        <a href="#" class="logo"><i class="fa fa-shopping-basket"></i> SixTeam</a>
+        <nav class="navbar">
+            <a href="~/home/Trangchu">trang chủ</a>
+            <a href="~/Produtt/Produtt">sản phẩm</a>
+            <a href="~/Categorie/Categorie">giảm giá</a>
+            <a href="~/Revieww/Revieww">Đánh Giá</a>
+            <a href="~/Blog/Blog">Bài Viết</a>
+        </nav>
+        <div class="icon">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>
+
+        <!-- Phần form tìm kiếm  -->
+        <form action="" class="search-form">
+            <input type="search" id="search-box" placeholder="Tìm Kiếm Ở Đây...">
+            <label for="search-box" class="fa fa-search"></label>
+        </form>
+        <!-- phần giỏ hàng -->
+        <div class="shopping-cart">
+            <div class="box">
+                <i class="fa fa-trash"></i>
+                <img src="~/img\Products/bot_toi.jpg" alt="">
+                <div class="content">
+                    <h3>Bột Tỏi</h3>
+                    <span class="prince"> 5.000 VNĐ</span>
+                    <span class="quantity">SL: 15</span>
+                </div>
+            </div>
+
+            <div class="box">
+                <i class="fa fa-trash"></i>
+                <img src="~/img\Products/cam_thao.jpg" alt="">
+                <div class="content">
+                    <h3>Cam Thảo</h3>
+                    <span class="prince"> 4.000 VNĐ</span>
+                    <span class="quantity">SL: 3</span>
+                </div>
+            </div>
+
+            <div class="box">
+                <i class="fa fa-trash"></i>
+                <img src="~/img\Products/chuoi_hot.jpg" alt="">
+                <div class="content">
+                    <h3>Chuối Hột</h3>
+                    <span class="prince"> 5.000 VNĐ</span>
+                    <span class="quantity">SL: 2</span>
+                </div>
+            </div>
+            <div class="total"> Tổng: 100.000 VNĐ</div>
+            <a href="#" class="btn">Thanh Toán</a>
+        </div>
+        <!-- phần form đăng nhập -->
+        <form action="" class="login-form">
+            <h3>Đăng nhập ngay</h3>
+            <input type="email" placeholder="Email" class="box">
+            <input type="password" placeholder="Mật khẩu" class="box">
+            <p>Quên mật khẩu? <a href="#">Nhấp vào đây</a></p>
+            <p>Bạn chưa có tài khoản? <a href="#">Tạo ngay</a></p>
+            <input type="submit" value="Đăng nhập" class="btn">
+        </form>
+
+
+    </header>
+
+    <!-- phần shop now-->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Khám phá sản phẩm <span>hữu cơ tươi ngon</span> được trồng tại địa phương</h3>
+            <p>Chào mừng bạn đến với TheSixTeam! Chúng tôi cung cấp các sản phẩm hữu cơ tươi ngon được trồng tại địa phương, mang đến cho bạn hương vị tuyệt vời của thiên nhiên.</p>
+            <a href="~/Produtt/Produtt" class="btn">Mua Ngay</a>
+        </div>
+    </section>
+
+    
+
+    @RenderBody()
+
+    <!-- phần footer  -->
+    <section class="footer">
+        <div class="box-container">
+
+            <div class="box">
+                <h3>SixTeam <i class="fas fa-shopping-basket"></i></h3>
+                <p>sạch từ tâm - ngon trọn vẹn</p>
+                <div class="share">
+                    <a href="#" class="fab fa fa-facebook-f"></a>
+                    <a href="#" class="fab fa fa-twitter"></a>
+                    <a href="#" class="fab fa fa-instagram"></a>
+                    <a href="#" class="fab fa fa-linkedin"></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>liên hệ</h3>
+                <a href="#" class="links"> <i class="fas fa-phone"></i>+123-456-7890</a>
+                <a href="#" class="links"> <i class="fas fa-phone"></i>+111-222-333</a>
+                <a href="#" class="links"> <i class="fas fa-envelope"></i>Example@gmail.com</a>
+                <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i>nguyen Lo Trach, Đa Nang-Viet Nam</a>
+            </div>
+
+            <div class="box">
+                <h3>Truy Cập Nhanh </h3>
+                <a href="~/home/Trangchu" class="links"> <i class="fas fa-arrow-right"></i>Trang Chủ</a>
+                <a href="~/Produtt/Produtt" class="links"> <i class="fas fa-arrow-right"></i>Sản Phẩm</a>
+                <a href="~/Categorie/Categorie" class="links"> <i class="fas fa-arrow-right"></i>Giảm Giá</a>
+                <a href="~/Revieww/Review" class="links"> <i class="fas fa-arrow-right"></i>Đánh Giá</a>
+                <a href="~/Blog/Blog" class="links"> <i class="fas fa-arrow-right"></i>Bài Viết</a>
+            </div>
+
+            <div class="box">
+                <h3>Đăng ký nhận bản tin</h3>
+                <p>Đăng ký để nhận các cập nhật mới nhất</p>
+                <input type="email" placeholder="Email của bạn" class="email">
+                <input type="submit" value="Đăng ký" class="btn">
+            </div>
+
+
+        </div>
+
+        <div class="credit">created by <span>the six team</span> | all rights reserved</div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+</html>

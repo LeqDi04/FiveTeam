@@ -1,0 +1,394 @@
+﻿
+@{
+    ViewBag.Title = "Trangchu";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+
+<!-- phần features-->
+<section class="features" id="features">
+    <h1 class="heading">Các <span>Tính Năng</span> Của Chúng Tôi</h1>
+    <div class="box-container">
+        <div class="box">
+            <img src="~/img/Features/fresh.jpg" alt="Fresh produce image">
+            <h3>Khám Phá Sự Tươi Ngon</h3>
+            <p>Khám phá các sản phẩm theo mùa mới nhất của chúng tôi được giao trực tiếp đến nhà bạn.</p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img/Features/giaohang.png" alt="Delivery truck image">
+            <h3>Tận Hưởng Giao Hàng Miễn Phí</h3>
+            <p>Nhận hàng tạp hóa yêu thích của bạn được giao miễn phí cho các đơn hàng trên $50.</p>
+            <a href="#" class="btn">Tìm Hiểu Thêm</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img/Features/thanhtoan.jpg" alt="Payment methods image">
+            <h3>Thanh Toán Đơn Giản</h3>
+            <p>Chọn từ các tùy chọn thanh toán tiện lợi và an toàn như thẻ tín dụng, thẻ ghi nợ hoặc ví điện tử.</p>
+            <a href="#" class="btn">Xem Các Tùy Chọn Thanh Toán</a>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- phần products -->
+<section class="products" id="products">
+    <h1 class="heading"> Tất Cả <span>Sản Phẩm</span> </h1>
+    <div class="swiper product-slide">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="~/img\Products\bot_toi.jpg" alt="">
+                <h3>Bột Tỏi</h3>
+                <div class="prince"> 19.000 VNĐ</div>
+
+                <a href="#" class="btn"> Thêm Vào Giỏ Hàng</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img/Products/cam_thao.jpg" alt="">
+                <h3>Cam Thảo</h3>
+                <div class="prince"> 15.000 VNĐ</div>
+
+                <a href="#" class="btn"> Thêm Vào Giỏ Hàng</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img/Products/bot-dieu-mau.jpg" alt="">
+                <h3>Bột Điều Màu</h3>
+                <div class="prince"> 29.000 VNĐ</div>
+
+                <a href="#" class="btn"> Thêm Vào Giỏ Hàng</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img/Products/chuoi_hot.jpg" alt="">
+                <h3>Chuối Hột</h3>
+                <div class="prince"> 14.000 VNĐ</div>
+
+                <a href="#" class="btn"> Thêm Vào Giỏ Hàng</a>
+            </div>
+            <div class="swiper-slide box">
+                <img src="~/img/Products/bottieuden.jpg" alt="">
+                <h3>Bột Tiêu Đen</h3>
+                <div class="prince"> 5.000 VNĐ</div>
+
+                <a href="#" class="btn"> Thêm Vào Giỏ Hàng</a>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img/Products/gung.jpg" alt="">
+                <h3>Gừng</h3>
+                <div class="prince"> 9.000 VNĐ</div>
+
+                <a href="#" class="btn"> Thêm Vào Giỏ Hàng</a>
+            </div>
+
+            @foreach (var product in Model.Products)
+            {
+                <div class="swiper-slide box">
+                    <img src="@Url.Content(product.Picture)" alt="@product.ProductName">
+                    <h3>@product.ProductName</h3>
+                    <div class="price">@product.Price VNĐ</div>
+                    <a href="#" class="btn">Thêm Vào Giỏ Hàng</a>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</section>
+
+<!-- phần categories    -->
+<section class="categories" id="categories">
+    <h1 class="heading"> Sản Phẩm <span>giảm giá</span></h1>
+    <div class="box-container">
+
+        <div class="box">
+            <img src="~/img\Categories\hanh_tim.jpg" alt="">
+            <h3>hành tím</h3>
+            <p>Giảm 5% </p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\hanhla.jpg" alt="">
+            <h3>hành lá</h3>
+            <p>Giảm 4% </p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\gung.jpg" alt="">
+            <h3>gừng</h3>
+            <p>Giảm 35%</p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\cu_kieu.jpg" alt="">
+            <h3>cũ kiệu</h3>
+            <p>Giảm 65% </p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\hatmutat.jpg" alt="">
+            <h3>Hạt Mù Tạt</h3>
+            <p>Giảm 25% </p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\hoadoi.jpg" alt="">
+            <h3>Hoa Hồi</h3>
+            <p>Giảm 15% </p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\hoquarung.jpg" alt="">
+            <h3>Khổ Qua</h3>
+            <p>Giảm 15% </p>
+            <a href="#" class="btn">Mua Ngay </a>
+        </div>
+
+        <div class="box">
+            <img src="~/img\Categories\lachanhthai.png" alt="">
+            <h3>Lá Chanh</h3>
+            <p>Giảm 15% </p>
+            <a href="#" class="btn">Mua Ngay</a>
+        </div>
+        @foreach (var category in Model.Categories)
+        {
+            <div class="box">
+                <img src="@Url.Content(category.Picture)" alt="@category.CategoriesName">
+                <h3>@category.CategoriesName</h3>
+                <p>Gảm @category.SellOff% </p>
+                <a href="#" class="btn">Mua Ngay</a>
+            </div>
+        }
+
+
+    </div>
+</section>
+
+<!-- phần review  -->
+<section class="review" id="review">
+    <h1 class="heading">Khách Hàng <span>Đánh Giá</span></h1>
+
+    <div class="swiper review-slider">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="~/img\Review\dat.jpg" alt="">
+                <p>sản phẩm rất tốt</p>
+                <h3>Tấn Đạt</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-atl"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img\Review\toan.jpg" alt="">
+                <p>sản phẩm tuyệt vời</p>
+                <h3>Hữu Toàn</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-atl"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img\Review\nghia.jpg" alt="">
+                <p>sản phẩm tốt</p>
+                <h3>Văn Nghĩa</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-atl"></i>
+                </div>
+            </div>
+            <div class="swiper-slide box">
+                <img src="~/img\Review\duy.jpg" alt="">
+                <p>sản phẩm very tốt</p>
+                <h3>Quốc Duy</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-atl"></i>
+                </div>
+            </div>
+            <div class="swiper-slide box">
+                <img src="~/img\Review/duong.jpg" alt="">
+                <p>sản phẩm too tốt</p>
+                <h3>Trường Dương</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-atl"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="~/img/Review/sa.png" alt="">
+                <p>sản phẩm tạm được</p>
+                <h3>Minh Sa</h3>
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-atl"></i>
+                </div>
+            </div>
+
+            @foreach (var review in Model.Reviews)
+            {
+                <div class="swiper-slide box">
+                    <img src="@Url.Content(review.Picture)" alt="@review.NameReview">
+                    <p>@review.ContentReview</p>
+                    <h3>@review.NameReview</h3>
+                    <!-- Corrected star class -->
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-alt"></i>
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</section>
+
+<!-- Phần  Blogs  -->
+<section class="blogs" id="blogs">
+    <h1 class="heading">Bài Viết <span>Của Chúng Tôi</span></h1>
+    <div class="box-container">
+
+        <div class="box">
+            <img src="~/img/Blogs/our1.png" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i>bởi người dùng</a>
+                    <a href="#"><i class="fas fa-calendar"></i>Ngày 28 Tháng 3, 2024</a>
+                </div>
+                <h3>Phong cách sống lành mạnh</h3>
+                <p>Trải nghiệm cuộc sống an lành và hạnh phúc (được tóm tắt nội dung bài viết...).</p>
+                <a href="#" class="btn">Xem Bài</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="~/img/Blogs/our2.jpg" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i>Bởi Quốc Duy</a>
+                    <a href="#"><i class="fas fa-calendar"></i>Ngày 10 Tháng 4, 2024</a>
+                </div>
+                <h3>Thực phẩm sạch và lợi ích cho sức khỏe</h3>
+                <p>Khám phá những lợi ích tuyệt vời của việc ăn thực phẩm sạch cho sức khỏe và cách chúng ảnh hưởng đến cơ thể của bạn.</p>
+                <a href="#" class="btn">Xem Bài</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="~/img/Blogs/our3.jpg" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i>Bởi Văn Nghĩa</a>
+                    <a href="#"><i class="fas fa-calendar"></i>Ngày 16 Tháng 1, 2024</a>
+                </div>
+                <h3>Cách nhận biết thực phẩm sạch</h3>
+                <p>Hướng dẫn cách nhận biết và chọn lựa thực phẩm sạch để đảm bảo bạn và gia đình luôn ăn uống an toàn.</p>
+                <a href="#" class="btn">Xem Bài</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="~/img/Blogs/our4.jpg" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i>Bởi Việt Toàn</a>
+                    <a href="#"><i class="fas fa-calendar"></i>Ngày 20 Tháng 4, 2024</a>
+                </div>
+                <h3>Thực phẩm hữu cơ: Sự lựa chọn hoàn hảo cho gia đình bạn</h3>
+                <p>Tìm hiểu về lợi ích của việc sử dụng thực phẩm hữu cơ và cách chúng giúp bảo vệ môi trường.</p>
+                <a href="#" class="btn">Xem Bài</a>
+            </div>
+        </div>
+
+
+
+        <div class="box">
+            <img src="~/img/Blogs/our5.jpg" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i>Bởi Minh Sa</a>
+                    <a href="#"><i class="fas fa-calendar"></i>Ngày 25 Tháng 4, 2024</a>
+                </div>
+                <h3>Thực phẩm sạch và ảnh hưởng đến môi trường</h3>
+                <p>Đọc về cách thực phẩm sạch không chỉ tốt cho sức khỏe con người mà còn có lợi cho môi trường.</p>
+                <a href="#" class="btn">Xem Bài</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="~/img/Blogs/duong.jpg" alt="">
+            <div class="content">
+                <div class="icons">
+                    <a href="#"><i class="fas fa-user"></i>Bởi Trường Dương</a>
+                    <a href="#"><i class="fas fa-calendar"></i>Ngày 30 Tháng 4, 2024</a>
+                </div>
+                <h3>Thực phẩm sạch và cách bảo quản hiệu quả</h3>
+                <p>Để thực phẩm sạch luôn giữ được chất lượng, cách bảo quản thực phẩm là rất quan trọng. Hãy cùng tìm hiểu các phương pháp bảo quản thực phẩm sạch hiệu quả nhất.</p>
+                <a href="#" class="btn">Xem Bài</a>
+            </div>
+        </div>
+
+
+        @foreach (var blog in Model.Blogs)
+        {
+            <div class="box">
+                <img src="@Url.Content(blog.Picture)" alt="@blog.Title">
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"><i class="fas fa-user"></i>@blog.ByUser</a>
+                        <a href="#"><i class="fas fa-calendar"></i>@blog.Date</a>
+                    </div>
+                    <h3>@blog.Title</h3>
+                    <p>...(được tóm tắt nội dung bài viết, giới hạn số ký tự hoặc từ).</p>
+                    <a href="#" class="btn">Xem Bài</a>
+                </div>
+            </div>
+        }
+
+    </div>
+</section>
+
+
+
+
+
